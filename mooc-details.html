@@ -19,6 +19,18 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $.urlParam = function (name) {
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            return results[1] || 0;
+        }
+
+        var mooc_key = $.urlParam('mooc')
+        console.log('MOOC =', mooc_key)
+    </script>
+
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -37,13 +49,13 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                         <div class="sidebar-brand-icon rotate-n-15">
                             <i class="fas fa-laugh-wink"></i>
                         </div>
                         <div class="sidebar-brand-text mx-3">MOOC Rec <sup>2</sup></div>
                     </a>
-
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
@@ -161,8 +173,7 @@
                                     </div>
                                     <div class="font-weight-bold">
                                         <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                            problem I've been
-                                            having.</div>
+                                            problem I've been having.</div>
                                         <div class="small text-gray-500">Emily Fowler · 58m</div>
                                     </div>
                                 </a>
@@ -174,8 +185,7 @@
                                     </div>
                                     <div>
                                         <div class="text-truncate">I have the photos that you ordered last month, how
-                                            would you like them
-                                            sent to you?</div>
+                                            would you like them sent to you?</div>
                                         <div class="small text-gray-500">Jae Chun · 1d</div>
                                     </div>
                                 </a>
@@ -187,8 +197,7 @@
                                     </div>
                                     <div>
                                         <div class="text-truncate">Last month's report looks great, I am very happy with
-                                            the progress so
-                                            far, keep up the good work!</div>
+                                            the progress so far, keep up the good work!</div>
                                         <div class="small text-gray-500">Morgan Alvarez · 2d</div>
                                     </div>
                                 </a>
@@ -200,8 +209,7 @@
                                     </div>
                                     <div>
                                         <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people
-                                            say this to all dogs, even if they aren't good...</div>
+                                            told me that people say this to all dogs, even if they aren't good...</div>
                                         <div class="small text-gray-500">Chicken the Dog · 2w</div>
                                     </div>
                                 </a>
@@ -222,7 +230,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="profile.html">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -249,80 +257,87 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Introduction to Kubernetes</h1>
+                    </div> -->
 
-                    <div class="row">
-                        <!-- Page Heading -->
-                        <div class="d-sm-flex align-items-center justify-content-between pr-5 mb-4 col-md-8">
-                            <h1 class="h3 mb-0 text-gray-800">Search Results</h1>
+                    <p class="mb-4">
+
+                    </p>
+                    <!-- Approach -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">Introduction to Kubernetes</h1>
+                            <h6 class="m-0 font-weight-bold text-primary">Provided by LinuxFoundationX via Edx</h6>
+                            <a href="https://www.edx.org/course/introduction-to-kubernetes"
+                                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                    class="fas fa-link fa-sm text-white-50"></i> Go to Course</a>
                         </div>
-                        <div class="col-md-4">
-                            <form action="search-results-page.html"
-                                class="d-none d-sm-inline-block form-inline mr-auto ml-md-5 my-2 pr-0 my-md-0 pl-5 mw-100 navbar-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small"
-                                        placeholder="Search Moocs" aria-label="Search" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
+                        <div class="card-body">
+                            <p>Want to learn Kubernetes? Get an in-depth primer on this powerful system for managing
+                                containerized applications.</p>
+
+                            <span class="col-sm-12 row">
+                                <span class="col-sm-6" style=" left: 0px;">
+                                    <p>Course Rating:
+                                        <i class="fas fa-star" style="color: #ffca65"></i>
+                                        <i class="fas fa-star" style="color: #ffca65"></i>
+                                        <i class="fas fa-star" style="color: #ffca65"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i></p>
+                                    <p>Forum Activity:
+                                        <i class="fas fa-star" style="color: #ffca65"></i>
+                                        <i class="fas fa-star" style="color: #ffca65"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i></p>
+                                    <p>Tags: <strong>Trending</strong>, <strong>Kubernetes</strong></p>
+                                    <p>Difficulty: <strong>Introductory</strong></p>
+                                    <p>Language: <strong>English</strong></p>
+                                    <p>Duration: <strong>14 Weeks</strong></p>
+                                </span>
+                                <span class="chart-pie col-sm-6" style="right: 0px;">
+                                    <canvas id="moocPieChart"></canvas>
+                                    <div class="mt-4 text-center small">
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-primary"></i> Coding
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-success"></i> Animation
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-info"></i> Talking Head
+                                        </span>
                                     </div>
-                                </div>
-                            </form>
+                                </span>
+                            </span>
+                            <!-- <h6 class="m-0 font-weight-bold text-primary">UTAustinX via Edx</h6> -->
+                            <img
+                                src="https://prod-discovery.edx-cdn.org/media/course/image/8566d539-69cb-43a5-94c2-000502df1a92-2b44e695bf30.small.png">
+                            <img
+                                src="https://www.edx.org/sites/default/files/school/image/logo/lf_logo_new_pantone_200x101.png">
+                            <p style="margin-top: 20px;">
+                                <p>Is your team beginning to use Kubernetes for container orchestration? Do you need
+                                    guidelines on how to start transforming your organization with Kubernetes and cloud
+                                    native patterns? Would you like to simplify software container orchestration and
+                                    find a way to grow your use of Kubernetes without adding infrastructure complexity?
+                                    Then this is the course for you!</p>
+                                <p>In this course, we'll discuss some of Kubernetes' basic concepts and talk about the
+                                    architecture of the system, the problems it solves, and the model that it uses to
+                                    handle containerized deployments and scaling.</p>
+                                <p>This course offers an introduction to Kubernetes and includes technical instructions
+                                    on how to deploy a stand-alone and multi-tier application. You&rsquo;ll learn about
+                                    ConfigMaps and Secrets, and how to use Ingress.</p>
+                                <p>Upon completion, developers will have a solid understanding of the origin,
+                                    architecture and building blocks for Kubernetes, and will be able to begin testing
+                                    the new cloud native pattern to begin the cloud native journey.</p>
+                            </p>
                         </div>
                     </div>
 
                 </div>
                 <!-- /.container-fluid -->
-
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a class="card flex-row flex-wrap" href="mooc-details.html">
-                            <div class="card-header border-0">
-                                <img width="180" height="150"
-                                    src="https://blog.internshala.com/wp-content/uploads/2018/02/Python-programming-Gamers-and-coders-of-the-world-unite-1024x490.jpg"
-                                    alt="">
-                            </div>
-                            <div class="card-block px-2">
-                                <h4 class="card-title">Python Data Structures</h4>
-                                <p class="card-text">Gain new insights into your data . Learn to apply data science
-                                    methods and techniques, and acquire analysis skills.</p>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                            <div class="w-100"></div>
-                            <!-- <div class="card-footer w-100 text-muted">
-                                Footer stating cats are CUTE little animals
-                            </div> -->
-                        </a>
-                    </li>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="card flex-row flex-wrap">
-                            <div class="card-header border-0">
-                                <img width="180" height="150"
-                                    src="https://blog.internshala.com/wp-content/uploads/2018/02/Python-programming-Gamers-and-coders-of-the-world-unite-1024x490.jpg"
-                                    alt="">
-                            </div>
-                            <div class="card-block px-2">
-                                <h4 class="card-title">Python Data Structures</h4>
-                                <p class="card-text">Gain new insights into your data . Learn to apply data science
-                                    methods and techniques, and acquire analysis skills.</p>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                            <div class="w-100"></div>
-                            <!-- <div class="card-footer w-100 text-muted">
-                                        Footer stating cats are CUTE little animals
-                                    </div> -->
-                        </div>
-                    </li>
-                </ul>
 
             </div>
             <!-- End of Main Content -->
@@ -383,7 +398,7 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="js/demo/mooc-pie-chart.js"></script>
 
 </body>
 
