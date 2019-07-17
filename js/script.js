@@ -11,6 +11,7 @@ var q1Rating = 0;
 var q2Rating = 0;
 var yetToInteractWithVideo = true;
 var isTranscriptVisible = false;
+var isVideoMuted = false;
 
 
 function getIndexOfVideo(path) {
@@ -88,19 +89,17 @@ $(document).ready(function () {
     $(".videoPlayer").toArray().forEach(function (videoPlayer) {
         // Video elemens.
         video = $(videoPlayer).find("video")[0];
-        var playPauseBtn = $(videoPlayer).find(".playPausebtn");
-        var fullscreen = $(videoPlayer).find(".fullscreen");
-        var startTime = $(videoPlayer).find(".startTime");
-        var endTime = $(videoPlayer).find(".endTime");
-        var playerSeekBar = $(videoPlayer).find(".topControls .seekbar");
-        var playerProgressBar = $(videoPlayer).find(".topControls .seekbar .progressbar");
-        var volumeSeekBar = $(videoPlayer).find(".volumeCtrl .seekbar");
-        var volumeProgressBar = $(videoPlayer).find(".volumeCtrl .seekbar .progressbar");
-        var fastForward = $(videoPlayer).find(".forward");
-        var fastBackward = $(videoPlayer).find(".backward");
-        var volumePercentage = $(videoPlayer).find(".volumeCtrl .percentage");
-        var playListItem = $(".playlistItem");
-        var speakerIcon = $(videoPlayer).find(".loudSpeaker-icon");
+        var playPauseBtn = $(videoPlayer).find("#playpauseBtn");
+        var fullscreen = $(videoPlayer).find("#fullScreenBtn");
+        var startTime = $(videoPlayer).find("#startTime");
+        var endTime = $(videoPlayer).find("#endTime");
+        var playerSeekBar = $(videoPlayer).find("#topControlsSeekbar");
+        var playerProgressBar = $(videoPlayer).find("#topControlsProgressbar");
+        var volumeSeekBar = $(videoPlayer).find("#seekbar");
+        var volumeProgressBar = $(videoPlayer).find("#progressBar");
+        var fastForward = $(videoPlayer).find("#forwardBtn");
+        var volumePercentage = $(videoPlayer).find("#percentage");
+        var speakerIcon = $(videoPlayer).find("#loudSpeaker-icon");
         var ratingPopup = $("#popUpModal");
         var transcript = $("#transcriptBtn");
 
@@ -122,9 +121,16 @@ $(document).ready(function () {
         });
         /* End play_pause on click */
 
-        // FastForward/ Go to next video function.
+        // FastForward Go to next video function.
         fastForward.on("click", function () {
             playPauseBtn.click();
+            updateVideoProgressBar();
+
+            // Set video to unmute during new video play.
+            isVideoMuted = false;
+            video.muted = false;
+            speakerIcon.html("<i class='fa fa-volume-up'></i>");
+            
             $("#popUpModal").modal("show");
             rateQuestion1();
             rateQuestion2();
@@ -188,11 +194,18 @@ $(document).ready(function () {
 
         // Mute button.
         $(speakerIcon).on("click", function () {
-            video.muted = true;
-            speakerIcon.addClass("fas fa-volume-mute").removeClass("fa fa-volume-up");
+            if(isVideoMuted){
+                video.muted = false;
+                muteUnmuteToggle(speakerIcon);
+                isVideoMuted = false;
+            }
+            else if((isVideoMuted==false)){
+                video.muted = true;
+                muteUnmuteToggle(speakerIcon);
+                isVideoMuted = true;
+            }
         });
 
-      
         // View transcript.
         $(transcript).on("click", function(){
             var transcriptDiv = document.getElementById("transcriptCard");
@@ -246,7 +259,7 @@ $(document).ready(function () {
                 $("#closeFeedbackBtn").click();
 
                 localStorage.setItem("training-session", JSON.stringify({ Activity: ACTIVITY, Feedback: FEEDBACK }));
-                window.location.href = "preference.html";
+                window.location.href = "session-end.html";
             }
 
 
@@ -300,6 +313,14 @@ $(document).ready(function () {
         var updateSeekbar = function () {
             seekBarPercentage = getPercentage(video.currentTime, video.duration);
             curDuration = calcDuration(video.currentTime);
+            
+            completeDuration = video.duration;
+            endDuration = calcDuration(completeDuration);
+
+            endTime.text(
+                `${endDuration.hours}:${endDuration.minutes}:${endDuration.seconds}`
+            );
+
             startTime.text(
                 `${curDuration.hours}:${curDuration.minutes}:${curDuration.seconds}`
             );
@@ -320,6 +341,20 @@ $(document).ready(function () {
                 video.pause();
                 playPauseBtn.addClass("play").removeClass("pause");
                 $(videoPlayer).removeClass("isPlaying");
+            }
+        }
+
+        // Mute unmute icon toggle.
+        function muteUnmuteToggle(Element){
+            if(isVideoMuted){
+                video.muted = false;
+                Element.html("<i class='fa fa-volume-up'></i>");
+                isVideoMuted = false;
+            }
+            else if((isVideoMuted==false)){
+                video.muted = true;
+                Element.html(" <i class='fas fa-volume-mute' role='muteControl'></i>");
+                isVideoMuted = true;
             }
         }
 

@@ -16,128 +16,301 @@
   <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/starrr.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-  <link href="css/starrr.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
 
 </head>
 
-<body id="page-top" style="background: img/bg.jpg">
+<body id="page-top">
   <!-- Page Wrapper -->
   <div id="wrapper">
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
       <!-- Main Content -->
-      <div id="content" style="height: 90vh">
-        <!-- Begin Page Content -->
-        <div class="container-fluid"
-          style="margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); vertical-align: middle;">
-          <div class="row d-sm-flex">
-            <div class="col-lg-6">
-              <!-- Collapsable Card Example -->
-              <div class="card shadow mb-4">
-                <!-- Card Header - Accordion -->
-                <a href="#collapseCardPlayer" class="d-block card-header py-3" data-toggle="collapse" role="button"
-                  aria-expanded="true" aria-controls="collapseCardPlayer">
-                  <h6 class="m-0 font-weight-bold text-primary">MOOC Player</h6>
+      <div id="content">
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <div class="sidebar-brand-icon">
+              <img src="img/logo.png" height="36" />
+            </div>
+            <div class="sidebar-brand-text mx-3"></div>
+          </a>
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                      aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts -->
+                <span class="badge badge-danger badge-counter">3+</span>
+              </a>
+              <!-- Dropdown - Alerts -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  Alerts Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-primary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 12, 2019</div>
+                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                  </div>
                 </a>
-                <!-- Card Content - Collapse -->
-                <div class="collapse show" id="collapseCardPlayer">
-                  <div id="player-container" class="card-body">
-                    <div class="videoPlayer showControls">
-                      <div id="videoTitle" class="videoTitle">
-                        TESTVIDEO01.MP4
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-success">
+                      <i class="fas fa-donate text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 7, 2019</div>
+                    $290.29 has been deposited into your account!
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 2, 2019</div>
+                    Spending Alert: We've noticed unusually high spending for your account.
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="profile.html">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- style="margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); vertical-align: middle;"> -->
+          <!-- Page Heading -->
+          <div class="d-flex justify-content-center col-lg-12">
+            <div class="col-lg-4">
+              <br>
+              <h1 class="h3 mb-0 text-gray-800 text-center">Find your style!</h1>
+              <br>
+              <!-- Start of video segment part-->
+              <div id="videoContainer" class="container">
+                <div id="videoPlayer" class="videoPlayer showControls">
+                  <div id="videoTitle" class="videoTitle">
+                    TESTVIDEO01.MP4
+                  </div>
+                  <video id="video" preload="auto" src="testVideo1.mp4" type="video/mp4" role="player" autoplay="true">
+                  </video>
+
+                  <div id="cntrls" class="controls active">
+                    <!-- top controls-->
+                    <div id="topControls" class="topControls">
+                      <span id="startTime" class="startTime"> 00:00:00 </span>
+                      <div id="topControlsSeekbar" class="seekbar" role="seekControl">
+                        <div id="topControlsProgressbar" class="progressbar" role="seekControl"></div>
                       </div>
-                      <video id="video" preload="auto" src="testVideo1.mp4" type="video/mp4" role="player"
-                        autoplay="true">
-                      </video>
-
-                      <div id="cntrls" class="controls active">
-                        <!-- top controls-->
-                        <div class="topControls">
-                          <span class="startTime"> 00:00:00 </span>
-                          <div id="seekbar" class="seekbar" role="seekControl">
-                            <div id="progressbar" class="progressbar" role="seekControl"></div>
-                          </div>
-                          <span class="endTime" role="seekControl"> 00:00:00 </span>
+                      <span id="endTime" class="endTime" role="seekControl"> 00:00:00 </span>
+                    </div>
+                    <!-- bottom controls-->
+                    <div  id="bottomControls" class="bottomControls">
+                      <!-- Volume controls-->
+                      <div  id="volumeCtrl" class="volumeCtrl">
+                        <div id="loudSpeaker-icon" class="loudSpeaker-icon" role="muteControl">
+                          <i class="fa fa-volume-up"></i>
+                          <i class="fas fa-volume-mute" role="muteControl" style="display: none;" ></i>
                         </div>
-                        <!-- bottom controls-->
-                        <div class="bottomControls">
-                          <!-- Volume controls-->
-                          <div class="volumeCtrl">
-                            <div class="loudSpeaker-icon" role="muteControl">
-                              <i class="fa fa-volume-up"></i>
-                              <i class="fas fa-volume-mute" role="muteControl"></i>
-                            </div>
-                            <div id="volumeSeekbar" class="seekbarSection" role="volumeControl">
-                              <div class="wrapper" role="volumeControl">
-                                <span class="lbl">Volume</span>
-                                <span class="percentage">100%</span>
-                              </div>
-                              <span class="seekbar" role="volumeControl">
-                                <div class="progressbar" role="volumeControl"></div>
-                              </span>
-
-                            </div>
+                        <div id="volumeSeekbar" class="seekbarSection" role="volumeControl">
+                          <div id="wrapper" class="wrapper" role="volumeControl">
+                            <span id="lbl" class="lbl">Volume</span>
+                            <span id="percentage" class="percentage">100%</span>
                           </div>
+                          <span id="seekbar" class="seekbar" role="volumeControl">
+                            <div id="progressBar" class="progressbar" role="volumeControl"></div>
+                          </span>
 
-
-
-                          <!-- Playback control-->
-                          <div class="playbackCtrl">
-                            <!-- Transcript -->
-                            <div class="transcriptCtrl">
-                              <button id="transcriptBtn" class="transcript" role="playerControl">
-                                <i class="fa fa-file-o" role="transcript"></i>
-                              </button>
-                            </div>
-                            <button id="playpauseBtn" class="btn playPausebtn play" role="playerControl">
-                              <i id="playIcon" class="fa fa-play" role="playbackControl"></i>
-                              <i id="pauseIcon" class="fa fa-pause" role="playbackControl"></i>
-                            </button>
-                            <button id="forwardBtn" class="btn forward" role="playerControl">
-                              <i class="fa fa-fast-forward" role="nextSegment"></i>
-                            </button>
-                          </div>
-
-
-                          <!-- full screen-->
-                          <div class="fullscreenCtrl">
-                            <button id="fullScreenBtn" class="fullscreen" role="playerControl">
-                              <i class="fa fa-expand" role="fullScreen"></i>
-                            </button>
-                          </div>
                         </div>
+                      </div>
+
+
+
+                      <!-- Playback control-->
+                      <div id="playbackCtrl" class="playbackCtrl">
+                        <!-- Transcript -->
+                        <div class="transcriptCtrl">
+                          <button id="transcriptBtn" class="btn transcript" role="playerControl">
+                            <i class="fa fa-file-o" role="transcript"></i>
+                          </button>
+                        </div>
+                        <button id="playpauseBtn" class="btn playPausebtn play" role="playerControl">
+                          <i id="playIcon" class="fa fa-play" role="playbackControl"></i>
+                          <i id="pauseIcon" class="fa fa-pause" role="playbackControl"></i>
+                        </button>
+                        <button id="forwardBtn" class="btn forward" role="playerControl">
+                          <i class="fa fa-fast-forward" role="nextSegment"></i>
+                        </button>
+                      </div>
+
+
+                      <!-- full screen-->
+                      <div class="fullscreenCtrl">
+                        <button id="fullScreenBtn" class="fullscreen" role="playerControl">
+                          <i class="fa fa-expand" role="fullScreen"></i>
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-lg-6">
-              <!-- Collapsable Card Example -->
-              <div class="card shadow mb-4">
-                <!-- Card Header - Accordion -->
-                <a href="#collapseCardTranscript" class="d-block card-header py-3" data-toggle="collapse" role="button"
-                  aria-expanded="true" aria-controls="collapseCardTranscript">
-                  <h6 class="m-0 font-weight-bold text-primary">MOOC Transcript</h6>
-                </a>
-                <!-- Card Content - Collapse -->
-                <div class="collapse show" id="collapseCardTranscript">
-                  <div id="transcript-container" class="card-body">
+              <div id="transcriptCard" class="card" style="display: none;">
+                <div class="card-body">
+                  <p id="cardText">Lorem ipsum dolor sit amet, noster utroque vivendum quo in.
+                    Est ex nonumy ancillae, ex pro vocent eruditi. Duo ne dicant deleniti perpetua,
+                    te dico regione quaeque ius. No quas habeo simul sit, graece audiam ponderum vim ne.
+                    Quo pericula prodesset ut.
+
+                    Cum ea tritani signiferumque conclusionemque.
+                    Mea ut oportere pertinacia, mea eu nonumes dolorem honestatis.
+                    Id primis diceret mei, ipsum saepe intellegebat nam cu, sumo suscipiantur ad eum.
+                    Vim te quot solet, nec ei hinc possit democritum, eum graeci fabulas intellegat in.
+                    Oratio senserit vis ei, id augue feugiat explicari mei. Quot deleniti ex eum,
+                    mei no magna semper vituperatoribus, in iusto vocibus vis.
+                  </p>
+                </div>
+              </div>
+              <!-- Modal -->
+              <div class="modal fade" id="popUpModal" tabindex="-1" role="dialog" aria-labelledby="popUpModelLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="popUpModelLabel"> Help us identify your preference! </h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="d-flex flex-column">
+                        <div class="fc">
+                          <p>How easy was this segmant for you to understand?</p>
+                        </div>
+                        <div class="fc">
+                          <div class="d-flex flex-row">
+                            <div id="question1" class='starrr fr ques1'>
+                            </div>
+                            <div>
+                              <p id="para" class="fr"></p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="fc">
+                          <p>How interesting was this segmant for you?</p>
+                        </div>
+                        <div class="fc">
+                          <div class="d-flex flex-row">
+                            <div id="question2" class='starrr fr ques2'>
+                            </div>
+                            <div>
+                              <p id="para2" class="fr"></p>
+                            </div>
+                          </div>
+                        </div>
+
+
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button id="closeFeedbackBtn" type="button" class="btn btn-secondary"
+                        data-dismiss="modal">Close</button>
+                      <button id="replayBtn" role="replayControl" type="button" class="btn btn-primary">Replay</button>
+                      <button id="submitFeedbackBtn" type="button" class="btn btn-primary">Next Video Style</button>
+                    </div>
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
-          <!-- Progress Bar -->
-          <div class="progress" role="progressbar">
-            <div class="progress-bar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="d-flex justify-content-center col-lg-12">
+            <div class="col-lg-6">
+            </div>
           </div>
-          <!-- End of Progress Bar -->
-        </div> <!-- /.container-fluid -->
+
+        </div>
+        <!-- /.container-fluid -->
       </div>
       <!-- End of Main Content -->
 
@@ -145,8 +318,9 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <a href="https://www.freepik.com/free-photos-vectors/business">Business vector created by freepik -
-              www.freepik.com</a>
+            <a href="https://www.freepik.com/free-photos-vectors/business">Business vector created by
+              fullvector - www.freepik.com</a>
+            <br>
             <span>Copyright &copy; Your Website 2019</span>
           </div>
         </div>
@@ -203,6 +377,7 @@
     </script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="js/starrr.js"></script>
+
   <script src="js/view.rec.min.js"></script>
   <script src="js/script.js"></script>
 
