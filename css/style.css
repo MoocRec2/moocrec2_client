@@ -4,6 +4,14 @@
   background-color: #FFFFFF;
 }
 
+.bg{
+  background-image: url("img/newbg.svg");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #videoContainer {
   position: fixed;
   top: 26%;
@@ -22,8 +30,8 @@
 }
 
 #videoPlayer {
-  max-width: 600px;
-  max-height: 400px;
+  max-width: 700px;
+  max-height: 700px;
   border-radius: 4px;
   overflow: hidden;
   display: -webkit-box;
