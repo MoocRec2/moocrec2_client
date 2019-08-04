@@ -445,5 +445,55 @@ $(document).ready(function () {
 
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();   
+
+    var currentPage = window.location.href;
+    console.log(currentPage);
+
+    if (currentPage.includes('session-end')) analyseEngagement();
 });
 
+function analyseEngagement() {
+    // retrieve activity data recorded by the session.
+    var sessionData = JSON.parse(localStorage.getItem("training-session"));
+    
+    axios.post('http://localhost:3000/engagement/find', sessionData)
+    .then(response => {
+        var engagementData = response.data;
+        var preferredVideoStyles = engagementData['PreferedStyles'];
+        var container = $('#video-styles');
+
+        preferredVideoStyles.forEach(style => { 
+            var button = getButton(style, 'btn-success', true);
+            container.append(button);
+        })
+
+    })
+    .catch(error => {
+        console.error(error);
+    })
+    
+}
+
+/*
+ * Returns a <button></button> HTML element, styled with bootstrap v4 classes.
+ * 
+ * @param colorClass { string }
+ *      Bootstrap v4 class responsible for button color.
+ *      btn-default | btn-primary | btn-danger | btn-warning | btn-success | btn-secondary
+ * 
+ * @param smallBtn { bool }
+ *      Indicates if the button is small or regular sized.
+ */
+function getButton(text, colorClass, smallBtn) {
+    var classes = ['btn'];
+    classes.push(colorClass);
+    if (smallBtn) classes.push('btn-sm');
+
+    // Set properties.
+    button = document.createElement('button');
+    button.innerHTML = text;
+    classes.forEach(class_ => { button.classList.add(class_); });
+    
+    console.log(text + '\n' + button);
+    return button;
+}
