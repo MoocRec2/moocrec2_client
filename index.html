@@ -24,7 +24,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="getCourses()">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -171,11 +171,11 @@
               <h1 class="h3 mb-0 text-gray-800">Recommended Courses</h1>
             </div>
             <div class="col-md-4">
-              <form action="search-results-page.html"
+              <form action="search-results-page.html" method="GET"
                 class="d-none d-sm-inline-block form-inline mr-auto ml-md-5 my-2 pr-0 my-md-0 pl-5 mw-100 navbar-search">
                 <div class="input-group">
                   <input type="text" class="form-control bg-light border-0 small" placeholder="Search Moocs"
-                    aria-label="Search" aria-describedby="basic-addon2">
+                    aria-label="Search" aria-describedby="basic-addon2" name="searchQuery">
                   <div class="input-group-append">
                     <button class="btn btn-primary" type="submit">
                       <i class="fas fa-search fa-sm"></i>
@@ -366,6 +366,7 @@
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="./courses.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
