@@ -36,7 +36,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="getCourseDetails()">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -268,15 +268,13 @@
                     <!-- Approach -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">Introduction to Kubernetes</h1>
-                            <h6 class="m-0 font-weight-bold text-primary">Provided by LinuxFoundationX via Edx</h6>
+                            <h1 class="h3 mb-0 text-gray-800" id="course_title"></h1>
+                            <h6 class="m-0 font-weight-bold text-primary" id="provision_info">Provided by LinuxFoundationX via Edx</h6>
                             <a href="https://www.edx.org/course/introduction-to-kubernetes"
                                 class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                     class="fas fa-link fa-sm text-white-50"></i> Go to Course</a>
                         </div>
                         <div class="card-body">
-                            <p>Want to learn Kubernetes? Get an in-depth primer on this powerful system for managing
-                                containerized applications.</p>
 
                             <span class="col-sm-12 row">
                                 <span class="col-sm-6" style=" left: 0px;">
@@ -293,9 +291,9 @@
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i></p>
                                     <p>Tags: <strong>Trending</strong>, <strong>Kubernetes</strong></p>
-                                    <p>Difficulty: <strong>Introductory</strong></p>
-                                    <p>Language: <strong>English</strong></p>
-                                    <p>Duration: <strong>14 Weeks</strong></p>
+                                    <p>Difficulty: <strong id="level_type"></strong></p>
+                                    <p>Language: <strong id="language"></strong></p>
+                                    <p>Duration: <strong id="duration"></strong></p>
                                 </span>
                                 <span class="chart-pie col-sm-6" style="right: 0px;">
                                     <canvas id="moocPieChart"></canvas>
@@ -312,27 +310,12 @@
                                     </div>
                                 </span>
                             </span>
+                            <br><br>
+                            <p id="course_desc"></p>
                             <!-- <h6 class="m-0 font-weight-bold text-primary">UTAustinX via Edx</h6> -->
-                            <img
-                                src="https://prod-discovery.edx-cdn.org/media/course/image/8566d539-69cb-43a5-94c2-000502df1a92-2b44e695bf30.small.png">
-                            <img
-                                src="https://www.edx.org/sites/default/files/school/image/logo/lf_logo_new_pantone_200x101.png">
-                            <p style="margin-top: 20px;">
-                                <p>Is your team beginning to use Kubernetes for container orchestration? Do you need
-                                    guidelines on how to start transforming your organization with Kubernetes and cloud
-                                    native patterns? Would you like to simplify software container orchestration and
-                                    find a way to grow your use of Kubernetes without adding infrastructure complexity?
-                                    Then this is the course for you!</p>
-                                <p>In this course, we'll discuss some of Kubernetes' basic concepts and talk about the
-                                    architecture of the system, the problems it solves, and the model that it uses to
-                                    handle containerized deployments and scaling.</p>
-                                <p>This course offers an introduction to Kubernetes and includes technical instructions
-                                    on how to deploy a stand-alone and multi-tier application. You&rsquo;ll learn about
-                                    ConfigMaps and Secrets, and how to use Ingress.</p>
-                                <p>Upon completion, developers will have a solid understanding of the origin,
-                                    architecture and building blocks for Kubernetes, and will be able to begin testing
-                                    the new cloud native pattern to begin the cloud native journey.</p>
-                            </p>
+                            <span id="images_section"></span>
+
+                            </span>
                         </div>
                     </div>
 
@@ -385,6 +368,7 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="./courses.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
