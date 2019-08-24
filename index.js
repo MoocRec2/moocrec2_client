@@ -24,10 +24,25 @@ app.post('/engagement/find', (req, res) => {
     var preferredStyle = engagement.deduceEngagement(sessionData);
 
     // Save the data.
-    let users = collections.getCollection('users')
+    let users = collections.getCollection('users');
     users.save({ _id: 'aliyanage44', style: preferredStyle }, (err, result) => {
         res.send(err ? err : preferredStyle);
-    })
+    });
 });
+
+// Accepts query parameter "of" which contains username.
+// moocrec.com/engagement/styles?of=Tharushi -> Get the preferred style(s) of Tharushi.
+app.get('/engagement/styles', (req, res) => {
+    let username = req.query.of;
+
+    if (username) {
+        let users = collections.getCollection('users');
+        users.findOne({ _id: username}, (err, result) => {
+            if (err) res.send(err);
+            else res.send({ Styles: result.style.PreferedStyles });
+        });
+    }
+    else res.send({ Error: 'Provide username after "of". Example:- /engagement/styles?of=<username>' });
+})
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
