@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const engagement = require('./js/algorithm');
+const collections = require('./db');
 const port = 3000;
 const app = express();
 
@@ -22,7 +23,11 @@ app.post('/engagement/find', (req, res) => {
     var sessionData = req.body;
     var preferredStyle = engagement.deduceEngagement(sessionData);
 
-    res.send(preferredStyle);
+    // Save the data.
+    let users = collections.getCollection('users')
+    users.save({ _id: 'aliyanage44', style: preferredStyle }, (err, result) => {
+        res.send(err ? err : preferredStyle);
+    })
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

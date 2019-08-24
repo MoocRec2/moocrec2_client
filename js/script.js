@@ -69,19 +69,21 @@ $(document).ready(function () {
     $("button img video div span").on("click", function () {
         // Known roles:-
         // playerControl | volumeControl | playlist | player
-        var currentVideo = video.src;
-        var currentTimeOfCurrentVideo = video.currentTime;
-        var elementId = this.id;
-        var elementRole = $(video).attr('role');
+        if (window.href.location.includes('session.html')) {
+            var currentVideo = video.src;
+            var currentTimeOfCurrentVideo = video.currentTime;
+            var elementId = this.id;
+            var elementRole = $(video).attr('role');
 
-        var clickMetadata = {
-            Segment: currentVideo,
-            Time: currentTimeOfCurrentVideo,
-            ElementId: elementId,
-            elementRole: elementRole
-        };
-        console.log(this);
-        ACTIVITY.push(clickMetadata);
+            var clickMetadata = {
+                Segment: currentVideo,
+                Time: currentTimeOfCurrentVideo,
+                ElementId: elementId,
+                elementRole: elementRole
+            };
+            console.log(this);
+            ACTIVITY.push(clickMetadata);
+        }
     });
 
 
@@ -458,6 +460,7 @@ function analyseEngagement() {
     
     axios.post('http://localhost:3000/engagement/find', sessionData)
     .then(response => {
+        console.log(response);
         var engagementData = response.data;
         var preferredVideoStyles = engagementData['PreferedStyles'];
         var container = $('#video-styles');

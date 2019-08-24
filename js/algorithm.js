@@ -30,10 +30,11 @@ let identifyEngagementOfEachSegment = (engagementData => {
         var totalDuration = durations[segment];
         percentageOfSkipping[segment] = 0;
 
-        skippedDurations[segment].forEach(skippedAtTime => {
+        /*skippedDurations[segment].forEach(skippedAtTime => {
             var percentage = ((skippedAtTime) / totalDuration) / skippedCount;  // Since we add up the percentages, we need to take the average.
             percentageOfSkipping[segment] += percentage;
         });
+        */
     });
 
     // Take the feedback of each segment into one place.
