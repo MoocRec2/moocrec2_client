@@ -21,12 +21,12 @@ function searchCourses() {
             courseListElement.innerHTML = courseListElement.innerHTML +
                 `<li class="list-group-item">
                     <a class="row col-sm-12" href="mooc-details.html?id=${courses[x].key}" style="text-decoration: none">
-                        <div class="card-header border-0 col-sm-3">
-                            <img width="180" height="150"
-                                src="${courses[x].logo_image_urls[0]}"
-                                alt="">
+                        <div class="card-header border-0 col-sm-2" style="padding: 0px;">
+                            <img 
+                                src="${courses[x].image_url}"
+                                alt="" style="width: 100%; height: 100%">
                         </div>
-                        <div class="card-block px-2 col-sm-9">
+                        <div class="card-block px-2 col-sm-10">
                             <h4 class="card-title">${courses[x].title}</h4>
                             <p class="card-text">${courses[x].short_description}</p>
                             <i class="fas fa-star" style="color: #ffca65"></i>
