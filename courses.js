@@ -14,10 +14,25 @@ function searchCourses() {
     var searchInput = document.getElementById('search_input')
     searchInput.value = searchQuery
     $.get(baseUrl + '/courses/search/' + searchQuery, courses => {
-        console.log(courses.length)
 
         var courseListElement = document.getElementById('courses_list')
+        console.table(courses)
         for (var x = 0; x < courses.length; x++) {
+
+            rating = 4.5
+            rating_content = ''
+            var y_1 = rating
+            for (; y_1 >= 1; y_1--) {
+                rating_content += `<i class="fas fa-star" style="color: #ffca65"></i>`
+            }
+            if (y_1 == 0.5) {
+                rating_content += `<i class="fas fa-star-half-alt" style="color: #ffca65"></i>`
+            }
+
+            for (var y = 5 - rating; y >= 1; y--) {
+                rating_content += `<i class="fas fa-star"></i>`
+            }
+
             courseListElement.innerHTML = courseListElement.innerHTML +
                 `<li class="list-group-item">
                     <a class="row col-sm-12" href="mooc-details.html?id=${courses[x].key}" style="text-decoration: none">
@@ -27,13 +42,10 @@ function searchCourses() {
                                 alt="" style="width: 100%; height: 100%">
                         </div>
                         <div class="card-block px-2 col-sm-10">
-                            <h4 class="card-title">${courses[x].title}</h4>
-                            <p class="card-text">${courses[x].short_description}</p>
-                            <i class="fas fa-star" style="color: #ffca65"></i>
-                            <i class="fas fa-star" style="color: #ffca65"></i>
-                            <i class="fas fa-star" style="color: #ffca65"></i>
-                            <i class="fas fa-star" style="color: #ffca65"></i>
-                            <i class="fas fa-star"></i>
+                            <h4 class="card-title">${courses[x].title} - ${courses[x].platform}</h4>
+                            <p class="card-text">${courses[x].short_description ? courses[x].short_description : courses[x].description ? courses[x].description : '<br>'}</p>
+                            Course Rating: ${rating_content}<br>
+                            Forum Activity: ${rating_content}
                         </div>
                         <div class="w-100"></div>
                     </a>
