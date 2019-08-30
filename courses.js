@@ -10,50 +10,96 @@ function getCourses() {
 function searchCourses() {
     var currentUrlString = window.location.href
     var currentUrl = new URL(currentUrlString)
+
+    // Getting Values from URL
     var searchQuery = currentUrl.searchParams.get('searchQuery')
+    var coursera_plat = currentUrl.searchParams.get('coursera_plat')
+    var edx_plat = currentUrl.searchParams.get('edx_plat')
+    var fl_plat = currentUrl.searchParams.get('fl_plat')
+
+    // Setting Values to UI
     var searchInput = document.getElementById('search_input')
     searchInput.value = searchQuery
-    $.get(baseUrl + '/courses/search/' + searchQuery, courses => {
 
-        var courseListElement = document.getElementById('courses_list')
-        console.table(courses)
-        for (var x = 0; x < courses.length; x++) {
+    platforms = []
+    var courseraCheckBox = document.getElementById('coursera_plat')
+    if (coursera_plat) {
+        courseraCheckBox.checked = true
+        platforms.push('Coursera')
+    } else {
+        courseraCheckBox.checked = false
+    }
 
-            rating = 4.5
-            rating_content = ''
-            var y_1 = rating
-            for (; y_1 >= 1; y_1--) {
-                rating_content += `<i class="fas fa-star" style="color: #ffca65"></i>`
+    var edxCheckBox = document.getElementById('edx_plat')
+    if (edx_plat) {
+        edxCheckBox.checked = true
+        platforms.push('Edx')
+    } else {
+        edxCheckBox.checked = false
+    }
+
+    var flCheckBox = document.getElementById('fl_plat')
+    if (fl_plat) {
+        flCheckBox.checked = true
+        platforms.push('FutureLearn')
+    } else {
+        flCheckBox.checked = false
+    }
+
+    let requestBody = { query: searchQuery }
+
+    if (platforms.length !== 3 && platforms.length !== 0) {
+        Object.assign(requestBody, { platforms: platforms })
+    }
+
+    $.ajax({
+        url: baseUrl + '/courses/search',
+        data: JSON.stringify(requestBody),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        type: "POST",
+        success: courses => {
+
+            var courseListElement = document.getElementById('courses_list')
+            // console.table(courses)
+            for (var x = 0; x < courses.length; x++) {
+
+                rating = 4.5
+                rating_content = ''
+                var y_1 = rating
+                for (; y_1 >= 1; y_1--) {
+                    rating_content += `<i class="fas fa-star" style="color: #ffca65"></i>`
+                }
+                if (y_1 == 0.5) {
+                    rating_content += `<i class="fas fa-star-half-alt" style="color: #ffca65"></i>`
+                }
+
+                for (var y = 5 - rating; y >= 1; y--) {
+                    rating_content += `<i class="fas fa-star"></i>`
+                }
+
+                courseListElement.innerHTML = courseListElement.innerHTML +
+                    `<li class="list-group-item">
+                        <a class="row col-sm-12" href="mooc-details.html?id=${courses[x]._id}" style="text-decoration: none">
+                            <div class="card-header border-0 col-sm-2" style="padding: 0px;">
+                                <img 
+                                    src="${courses[x].image_url}"
+                                    alt="" style="width: 100%; height: 100%">
+                            </div>
+                            <div class="card-block px-2 col-sm-10">
+                                <h4 class="card-title">${courses[x].title} <span class="badge badge-secondary">${courses[x].platform}</span></h4>
+                                <p class="card-text" style="white-space: nowrap; 
+                                overflow: hidden;
+                                text-overflow: ellipsis;">${courses[x].short_description ? courses[x].short_description : courses[x].description ? courses[x].description : '<br>'}</p>
+                                Course Rating: ${rating_content}<br>
+                                Forum Activity: ${rating_content}
+                            </div>
+                            <div class="w-100"></div>
+                        </a>
+                    </li>`
             }
-            if (y_1 == 0.5) {
-                rating_content += `<i class="fas fa-star-half-alt" style="color: #ffca65"></i>`
-            }
-
-            for (var y = 5 - rating; y >= 1; y--) {
-                rating_content += `<i class="fas fa-star"></i>`
-            }
-
-            courseListElement.innerHTML = courseListElement.innerHTML +
-                `<li class="list-group-item">
-                    <a class="row col-sm-12" href="mooc-details.html?id=${courses[x]._id}" style="text-decoration: none">
-                        <div class="card-header border-0 col-sm-2" style="padding: 0px;">
-                            <img 
-                                src="${courses[x].image_url}"
-                                alt="" style="width: 100%; height: 100%">
-                        </div>
-                        <div class="card-block px-2 col-sm-10">
-                            <h4 class="card-title">${courses[x].title} <span class="badge badge-secondary">${courses[x].platform}</span></h4>
-                            <p class="card-text" style="white-space: nowrap; 
-                            overflow: hidden;
-                            text-overflow: ellipsis;">${courses[x].short_description ? courses[x].short_description : courses[x].description ? courses[x].description : '<br>'}</p>
-                            Course Rating: ${rating_content}<br>
-                            Forum Activity: ${rating_content}
-                        </div>
-                        <div class="w-100"></div>
-                    </a>
-                </li>`
         }
-    })
+    });
 }
 
 function getCourseDetails() {
