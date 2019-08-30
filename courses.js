@@ -35,15 +35,17 @@ function searchCourses() {
 
             courseListElement.innerHTML = courseListElement.innerHTML +
                 `<li class="list-group-item">
-                    <a class="row col-sm-12" href="mooc-details.html?id=${courses[x].key}" style="text-decoration: none">
+                    <a class="row col-sm-12" href="mooc-details.html?id=${courses[x]._id}" style="text-decoration: none">
                         <div class="card-header border-0 col-sm-2" style="padding: 0px;">
                             <img 
                                 src="${courses[x].image_url}"
                                 alt="" style="width: 100%; height: 100%">
                         </div>
                         <div class="card-block px-2 col-sm-10">
-                            <h4 class="card-title">${courses[x].title} - ${courses[x].platform}</h4>
-                            <p class="card-text">${courses[x].short_description ? courses[x].short_description : courses[x].description ? courses[x].description : '<br>'}</p>
+                            <h4 class="card-title">${courses[x].title} <span class="badge badge-secondary">${courses[x].platform}</span></h4>
+                            <p class="card-text" style="white-space: nowrap; 
+                            overflow: hidden;
+                            text-overflow: ellipsis;">${courses[x].short_description ? courses[x].short_description : courses[x].description ? courses[x].description : '<br>'}</p>
                             Course Rating: ${rating_content}<br>
                             Forum Activity: ${rating_content}
                         </div>
@@ -64,7 +66,8 @@ function getCourseDetails() {
         titleElement.innerText = course.title
 
         var descriptionElem = document.getElementById('course_desc')
-        descriptionElem.innerHTML = course.full_description
+        descriptionElem.innerHTML = course.full_description ? course.full_description : course.short_description ? course.short_description : course.description ? course.description : '<br>'
+        // var qwe = course.short_description ? course.short_description : course.description ? course.description : '<br>'
 
         var imagesElem = document.getElementById('images_section')
         for (var x = 0; x < course.logo_image_urls.length; x++) {
@@ -99,6 +102,7 @@ function getCourseDetails() {
         } else {
             platform = course.platform
         }
-        provisionElem.innerText = `Provided by ${course.org} via ${platform}`
+        var org = course.org.split('_').join(' ')
+        provisionElem.innerText = `Provided by ${org} via ${platform}`
     })
 }
