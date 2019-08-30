@@ -16,6 +16,7 @@ function searchCourses() {
     var coursera_plat = currentUrl.searchParams.get('coursera_plat')
     var edx_plat = currentUrl.searchParams.get('edx_plat')
     var fl_plat = currentUrl.searchParams.get('fl_plat')
+    var forum_activity = currentUrl.searchParams.get('forum_activity')
 
     // Setting Values to UI
     var searchInput = document.getElementById('search_input')
@@ -52,6 +53,13 @@ function searchCourses() {
         Object.assign(requestBody, { platforms: platforms })
     }
 
+    var faCheckBox = document.getElementById('forum_activity')
+    if (forum_activity) {
+        faCheckBox.checked = true
+        Object.assign(requestBody, { consider_forum_activity: true })
+    }
+
+
     $.ajax({
         url: baseUrl + '/courses/search',
         data: JSON.stringify(requestBody),
@@ -64,18 +72,21 @@ function searchCourses() {
             // console.table(courses)
             for (var x = 0; x < courses.length; x++) {
 
-                rating = 4.5
-                rating_content = ''
-                var y_1 = rating
-                for (; y_1 >= 1; y_1--) {
-                    rating_content += `<i class="fas fa-star" style="color: #ffca65"></i>`
-                }
-                if (y_1 == 0.5) {
-                    rating_content += `<i class="fas fa-star-half-alt" style="color: #ffca65"></i>`
-                }
+                // rating = courses[x].course_rating
+                function get_stars(rating) {
+                    rating_content = ''
+                    var y_1 = rating
+                    for (; y_1 >= 1; y_1--) {
+                        rating_content += `<i class="fas fa-star" style="color: #ffca65"></i>`
+                    }
+                    if (y_1 != 0) {
+                        rating_content += `<i class="fas fa-star-half-alt" style="color: #ffca65"></i>`
+                    }
 
-                for (var y = 5 - rating; y >= 1; y--) {
-                    rating_content += `<i class="fas fa-star"></i>`
+                    for (var y = 5 - rating; y >= 1; y--) {
+                        rating_content += `<i class="fas fa-star"></i>`
+                    }
+                    return rating_content
                 }
 
                 courseListElement.innerHTML = courseListElement.innerHTML +
@@ -87,12 +98,12 @@ function searchCourses() {
                                     alt="" style="width: 100%; height: 100%">
                             </div>
                             <div class="card-block px-2 col-sm-10">
-                                <h4 class="card-title">${courses[x].title} <span class="badge badge-secondary">${courses[x].platform}</span></h4>
+                                <h4 class="card-title">${courses[x].title} <span class="badge badge-secondary">${courses[x].platform ? courses[x].platform : 'Independent'}</span></h4>
                                 <p class="card-text" style="white-space: nowrap; 
                                 overflow: hidden;
                                 text-overflow: ellipsis;">${courses[x].short_description ? courses[x].short_description : courses[x].description ? courses[x].description : '<br>'}</p>
-                                Course Rating: ${rating_content}<br>
-                                Forum Activity: ${rating_content}
+                                Course Rating: ${get_stars(courses[x].course_rating)}<br>
+                                Forum Activity: ${get_stars(courses[x].forum_activity_rating)}
                             </div>
                             <div class="w-100"></div>
                         </a>
