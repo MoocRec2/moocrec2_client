@@ -1,5 +1,6 @@
 
-var baseUrl = 'http://localhost:3000'
+// var baseUrl = 'http://localhost:3000'
+var baseUrl = 'http://ec2-18-221-22-226.us-east-2.compute.amazonaws.com:3000'
 
 function getCourses() {
     $.get(baseUrl + '/courses/top-rated', courses => {
@@ -75,6 +76,8 @@ function searchCourses() {
                 // rating = courses[x].course_rating
                 function get_stars(rating) {
                     rating_content = ''
+                    if (rating === undefined || rating === null || rating > 5)
+                        return rating_content
                     var y_1 = rating
                     for (; y_1 >= 1; y_1--) {
                         rating_content += `<i class="fas fa-star" style="color: #ffca65"></i>`
