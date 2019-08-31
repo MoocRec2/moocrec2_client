@@ -24,7 +24,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="searchCourses()">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -252,21 +252,78 @@
 
                     <div class="row">
                         <!-- Page Heading -->
-                        <div class="d-sm-flex align-items-center justify-content-between pr-5 mb-4 col-md-8">
+                        <div class="d-sm-flex align-items-center justify-content-between pr-5 mb-4 col-md-2">
                             <h1 class="h3 mb-0 text-gray-800">Search Results</h1>
                         </div>
-                        <div class="col-md-4">
-                            <form action="search-results-page.html"
-                                class="d-none d-sm-inline-block form-inline mr-auto ml-md-5 my-2 pr-0 my-md-0 pl-5 mw-100 navbar-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small"
-                                        placeholder="Search Moocs" aria-label="Search" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
-                                    </div>
-                                </div>
+                        <div class="col-md-10">
+                            <form action="search-results-page.html" method="GET" class="col-sm-12">
+                                <span class="col-sm-12 row">
+                                    <span class="col-sm-8">
+                                        <p>
+                                            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample"
+                                                role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                Show/Hide Filters
+                                            </a>
+                                        </p>
+                                        <div class="collapse" id="collapseExample">
+                                            <div class="card card-body">
+                                                <span class="row col-sm-12">
+                                                    <span class="col-sm-6">
+                                                        <strong>Other Options</strong>
+                                                        <div class="form-group">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="forum_activity" name="forum_activity">
+                                                                <label class="custom-control-label"
+                                                                    for="forum_activity">Consider
+                                                                    Forum Activity
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </span>
+                                                    <span class="col-sm-6">
+                                                        <strong>Platforms</strong>
+                                                        <div class="form-group">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="coursera_plat" name="coursera_plat" checked>
+                                                                <label class="custom-control-label"
+                                                                    for="coursera_plat">Coursera
+                                                                </label>
+                                                            </div>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="edx_plat" name="edx_plat" checked>
+                                                                <label class="custom-control-label" for="edx_plat">Edx
+                                                                </label>
+                                                            </div>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" name="fl_plat"
+                                                                    class="custom-control-input" id="fl_plat" checked>
+                                                                <label class="custom-control-label"
+                                                                    for="fl_plat">FutureLearn
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </span>
+                                    <span class="col-sm-4" style="right: 0px; position: absolute; display: block;">
+
+                                        <div class="input-group">
+                                            <input type="text" class="form-control bg-light border-1 small"
+                                                placeholder="Search Moocs" aria-label="Search"
+                                                aria-describedby="basic-addon2" name="searchQuery" id="search_input">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="submit">
+                                                    <i class="fas fa-search fa-sm"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </span>
                             </form>
                         </div>
                     </div>
@@ -274,127 +331,7 @@
                 </div>
                 <!-- /.container-fluid -->
 
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a class="card flex-row flex-wrap" href="mooc-details.html" style="text-decoration: none">
-                            <div class="card-header border-0">
-                                <img width="180" height="150"
-                                    src="https://blog.internshala.com/wp-content/uploads/2018/02/Python-programming-Gamers-and-coders-of-the-world-unite-1024x490.jpg"
-                                    alt="">
-                            </div>
-                            <div class="card-block px-2">
-                                <h4 class="card-title">Python Data Structures</h4>
-                                <p class="card-text">Gain new insights into your data . Learn to apply data science
-                                    methods and techniques, and acquire analysis skills.</p>
-                                <i class="fas fa-star" style="color: #ffca65"></i>
-                                <i class="fas fa-star" style="color: #ffca65"></i>
-                                <i class="fas fa-star" style="color: #ffca65"></i>
-                                <i class="fas fa-star" style="color: #ffca65"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="w-100"></div>
-                            <!-- <div class="card-footer w-100 text-muted">
-                                Footer stating cats are CUTE little animals
-                            </div> -->
-                        </a>
-                    </li>
-                    </li>
-                    <li class="list-group-item">
-                        <a class="card flex-row flex-wrap" href="mooc-details.html" style="text-decoration: none">
-                            <div class="card-header border-0">
-                                <img width="180" height="150"
-                                    src="https://prod-discovery.edx-cdn.org/media/course/image/8566d539-69cb-43a5-94c2-000502df1a92-2b44e695bf30.small.png"
-                                    alt="">
-                            </div>
-                            <div class="card-block px-2">
-                                <h4 class="card-title">Introduction to Kubernetes</h4>
-                                <p class="card-text">Want to learn Kubernetes? Get an in-depth primer on this
-                                    powerful
-                                    system for managing containerized applications.</p>
-                                <i class="fas fa-star" style="color: #ffca65"></i>
-                                <i class="fas fa-star" style="color: #ffca65"></i>
-                                <i class="fas fa-star" style="color: #ffca65"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="w-100"></div>
-                            <!-- <div class="card-footer w-100 text-muted">
-                                        Footer stating cats are CUTE little animals
-                                    </div> -->
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a class="card flex-row flex-wrap" href="mooc-details.html" style="text-decoration: none">
-                            <div class="card-header border-0">
-                                <img width="180" height="150"
-                                    src="https://prod-discovery.edx-cdn.org/media/course/image/073d6494-9e83-4ffd-8f36-6e1d95ac4366-4be9baffe5a6.small.jpg"
-                                    alt="">
-                            </div>
-                            <div class="card-block px-2">
-                                <h4 class="card-title">Statistical Thinking for Data Science and Analytics</h4>
-                                <p class="card-text">Learn how statistics plays a central role in the data science
-                                    approach.</p>
-                                <i class="fas fa-star" style="color: #ffca65"></i>
-                                <i class="fas fa-star" style="color: #ffca65"></i>
-                                <i class="fas fa-star" style="color: #ffca65"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="w-100"></div>
-                            <!-- <div class="card-footer w-100 text-muted">
-                                        Footer stating cats are CUTE little animals
-                                    </div> -->
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a class="card flex-row flex-wrap" href="mooc-details.html" style="text-decoration: none">
-                            <div class="card-header border-0">
-                                <img width="180" height="150"
-                                    src="https://prod-discovery.edx-cdn.org/media/course/image/17143f64-6bac-4817-b6e9-467ad5a9e51c-dcdbe83d1126.small.jpg"
-                                    alt="">
-                            </div>
-                            <div class="card-block px-2">
-                                <h4 class="card-title">Microsoft Professional Capstone : Front End Web Development
-                                </h4>
-                                <p class="card-text">Showcase the knowledge gained in the Front End Web Developer
-                                    Professional Program by creating a real-world single page application.</p>
-                                <i class="fas fa-star" style="color: #ffca65"></i>
-                                <i class="fas fa-star" style="color: #ffca65"></i>
-                                <i class="fas fa-star" style="color: #ffca65"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="w-100"></div>
-                            <!-- <div class="card-footer w-100 text-muted">
-                                        Footer stating cats are CUTE little animals
-                                    </div> -->
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a class="card flex-row flex-wrap" href="mooc-details.html" style="text-decoration: none">
-                            <div class="card-header border-0">
-                                <img width="180" height="150"
-                                    src="https://prod-discovery.edx-cdn.org/media/course/image/a58d02d2-ee6b-4903-8075-15d516b28254-a03357c436cb.small.jpg"
-                                    alt="">
-                            </div>
-                            <div class="card-block px-2">
-                                <h4 class="card-title">Enabling Technologies for Data Science and Analytics: The
-                                    Internet of Things</h4>
-                                <p class="card-text">Discover the relationship between Big Data and the Internet of
-                                    Things (IoT).</p>
-                                <i class="fas fa-star" style="color: #ffca65"></i>
-                                <i class="fas fa-star" style="color: #ffca65"></i>
-                                <i class="fas fa-star" style="color: #ffca65"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="w-100"></div>
-                            <!-- <div class="card-footer w-100 text-muted">
-                                        Footer stating cats are CUTE little animals
-                                    </div> -->
-                        </a>
-                    </li>
-                </ul>
+                <ul class="list-group" id="courses_list"></ul>
 
             </div>
             <!-- End of Main Content -->
@@ -442,6 +379,7 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="./courses.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
