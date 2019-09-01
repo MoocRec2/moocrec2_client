@@ -1,4 +1,3 @@
-
 var baseUrl = 'http://ec2-18-221-22-226.us-east-2.compute.amazonaws.com:3000'
 
 function checkLogin() {
@@ -28,7 +27,10 @@ function login() {
     $.ajax({
         type: "POST",
         url: baseUrl + '/users/login',
-        data: JSON.stringify({ username: username, password: password }),
+        data: JSON.stringify({
+            username: username,
+            password: password
+        }),
         contentType: "application/json; charset=utf-8",
         success: data => {
             localStorage.setItem('token', data.token)
@@ -56,6 +58,26 @@ function getUserDetails() {
             username.textContent = localStorage.getItem('username')
             firstName.textContent = localStorage.getItem('firstName')
             lastName.textContent = localStorage.getItem('lastName')
+
+            var userAll = JSON.parse(localStorage.getItem('all'));
+            var userStyles = userAll.all.style.PreferedStyles;
+
+            if (userStyles) {
+                var userDiv = document.getElementById('preferredStylesUser');
+                var yourSpan = document.createElement('span');
+                var styles = ['badge badge-success','badge badge-primary','badge badge-info','badge badge-secondary','badge badge-danger']
+                var i = 0;
+                userStyles.forEach(style => {
+                    i++;
+                    var yourSpan = document.createElement('span');
+                    yourSpan.innerText = style;
+                    yourSpan.id = "style_span" + style;
+                    yourSpan.className = styles[i];
+                    yourSpan.style = "margin:2px"
+                    userDiv.appendChild(yourSpan);
+                });
+            }
+
         },
         error: error => {
             alert('ERROR')
@@ -87,14 +109,12 @@ function register() {
     $.ajax({
         type: "POST",
         url: baseUrl + '/users/register',
-        data: JSON.stringify(
-            {
-                firstName: firstName,
-                lastName: lastName,
-                username: username,
-                password: password
-            }
-        ),
+        data: JSON.stringify({
+            firstName: firstName,
+            lastName: lastName,
+            username: username,
+            password: password
+        }),
         contentType: "application/json; charset=utf-8",
         success: data => {
             // localStorage.setItem('token', data.token)
