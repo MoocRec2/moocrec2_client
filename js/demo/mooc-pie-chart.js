@@ -7,12 +7,12 @@ var ctx2 = document.getElementById("moocPieChart");
 var moocPieChart = new Chart(ctx2, {
     type: 'doughnut',
     data: {
-        labels: ["Coding", "Animation", "Talking Head"],
+        labels: ["Coding", "Animation", "Talking Head", "Writing", "Slide"],
         datasets: [{
-            data: [55, 30, 15],
-            backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-            hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
-            hoverBorderColor: "rgba(234, 236, 244, 1)",
+            data: [10, 25, 45, 15, 5],
+            backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc','#82d973','#d49c6e'],
+            hoverBackgroundColor: ['#2e59d9', '#17a673', '#215d66','#5c9153','#b57745'],
+            hoverBorderColor: "rgba(234, 236, 244, 1,56,48)",
         }],
     },
     options: {
