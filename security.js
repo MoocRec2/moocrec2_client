@@ -44,5 +44,37 @@ function logout() {
 }
 
 function register() {
-    
+
+    var firstName = document.getElementById('firstName').value
+    var lastName = document.getElementById('lastName').value
+    var username = document.getElementById('username').value
+    var password = document.getElementById('password').value
+    var confPassword = document.getElementById('re-password').value
+
+    if (password != confPassword) {
+        alert('Passwords Dont Match')
+        return
+    }
+    $.ajax({
+        type: "POST",
+        url: baseUrl + '/users/register',
+        data: JSON.stringify(
+            {
+                firstName: firstName,
+                lastName: lastName,
+                username: username,
+                password: password
+            }
+        ),
+        contentType: "application/json; charset=utf-8",
+        success: data => {
+            // localStorage.setItem('token', data.token)
+            alert('Registered')
+            window.location.href = 'login.html'
+        },
+        error: error => {
+            alert('Couldnt Register')
+        }
+    })
+
 }
