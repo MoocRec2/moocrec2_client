@@ -14,8 +14,9 @@ app.use('/vendor', express.static('vendor'))
 app.use('/', express.static('.'))
 
 // Server html files using root path /.
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/session.html'));
+app.get('/{page}', (req, res) => {
+    let goToPage = req.path.page
+    res.sendFile(path.join(__dirname + '/' + goToPage));
 })
 
 // Expose backend API using custom paths.
@@ -26,6 +27,8 @@ app.post('/engagement/find', (req, res) => {
     // Save the data.
     let users = collections.getCollection('users');
     users.save({ _id: 'aliyanage44', style: preferredStyle }, (err, result) => {
+        console.log(err ? err : result);
+        console.log(preferredStyle ? preferredStyle : 'Unable to find preferredStyle');
         res.send(err ? err : preferredStyle);
     });
 });
@@ -37,7 +40,7 @@ app.get('/engagement/styles', (req, res) => {
 
     if (username) {
         let users = collections.getCollection('users');
-        users.findOne({ _id: username}, (err, result) => {
+        users.findOne({ _id: username }, (err, result) => {
             if (err) res.send(err);
             else res.send({ Styles: result.style.PreferedStyles });
         });
