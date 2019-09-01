@@ -168,21 +168,73 @@
 
           <div class="row">
             <!-- Page Heading -->
-            <div class="d-sm-flex align-items-center justify-content-between pr-5 mb-4 col-md-8">
+            <div class="d-sm-flex align-items-center justify-content-between pr-5 mb-4 col-md-3">
               <h1 class="h3 mb-0 text-gray-800">Recommended Courses</h1>
             </div>
-            <div class="col-md-4">
-              <form action="search-results-page.html" method="GET"
-                class="d-none d-sm-inline-block form-inline mr-auto ml-md-5 my-2 pr-0 my-md-0 pl-5 mw-100 navbar-search">
-                <div class="input-group">
-                  <input type="text" class="form-control bg-light border-1 small" placeholder="Search Moocs"
-                    aria-label="Search" aria-describedby="basic-addon2" name="searchQuery">
-                  <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit">
-                      <i class="fas fa-search fa-sm"></i>
-                    </button>
-                  </div>
-                </div>
+            <div class="col-md-9">
+              <form action="search-results-page.html" method="GET" class="col-sm-12">
+                <span class="col-sm-12 row">
+                  <span class="col-sm-8">
+                    <p>
+                      <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        Show/Hide Filters
+                      </a>
+                    </p>
+                    <div class="collapse" id="collapseExample">
+                      <div class="card card-body">
+                        <span class="row col-sm-12">
+                          <span class="col-sm-6">
+                            <strong>Other Options</strong>
+                            <div class="form-group">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="forum_activity"
+                                  name="forum_activity">
+                                <label class="custom-control-label" for="forum_activity">Consider
+                                  Forum Activity
+                                </label>
+                              </div>
+                            </div>
+                          </span>
+                          <span class="col-sm-6">
+                            <strong>Platforms</strong>
+                            <div class="form-group">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="coursera_plat"
+                                  name="coursera_plat" checked>
+                                <label class="custom-control-label" for="coursera_plat">Coursera
+                                </label>
+                              </div>
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="edx_plat" name="edx_plat"
+                                  checked>
+                                <label class="custom-control-label" for="edx_plat">Edx
+                                </label>
+                              </div>
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="fl_plat" class="custom-control-input" id="fl_plat" checked>
+                                <label class="custom-control-label" for="fl_plat">FutureLearn
+                                </label>
+                              </div>
+                            </div>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </span>
+                  <span class="col-sm-4" style="right: 0px; position: absolute; display: block;">
+
+                    <div class="input-group">
+                      <input type="text" class="form-control bg-light border-1 small" placeholder="Search Moocs"
+                        aria-label="Search" aria-describedby="basic-addon2" name="searchQuery" id="search_input">
+                      <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">
+                          <i class="fas fa-search fa-sm"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </span>
+                </span>
               </form>
             </div>
           </div>
