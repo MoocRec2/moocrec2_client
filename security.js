@@ -61,12 +61,14 @@ function getUserDetails() {
             lastName.textContent = localStorage.getItem('lastName')
 
             var userAll = JSON.parse(localStorage.getItem('all'));
-            var userStyles = userAll.all.style.PreferedStyles;
+            var temp = userAll.all.style;
 
-            if (userStyles) {
-                var userDiv = document.getElementById('preferredStylesUser');
+            var userDiv = document.getElementById('preferredStylesUser');
+            if (temp) {
+
+                var userStyles = userAll.all.style.PreferedStyles;
                 var yourSpan = document.createElement('span');
-                var styles = ['badge badge-success','badge badge-primary','badge badge-info','badge badge-secondary','badge badge-danger']
+                var styles = ['badge badge-success', 'badge badge-primary', 'badge badge-info', 'badge badge-secondary', 'badge badge-danger']
                 var i = 0;
                 userStyles.forEach(style => {
                     i++;
@@ -77,6 +79,8 @@ function getUserDetails() {
                     yourSpan.style = "margin:2px"
                     userDiv.appendChild(yourSpan);
                 });
+            } else {
+                userDiv.innerHTML = '<a class="btn btn-primary" href="session-intro.html">Find Style</a>'
             }
 
         },
