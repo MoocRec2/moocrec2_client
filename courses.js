@@ -73,29 +73,28 @@ function searchCourses() {
     });
 }
 
+function get_stars(rating) {
+    rating_content = ''
+    if (rating === undefined || rating === null || rating > 5)
+        return rating_content
+    var y_1 = rating
+    for (; y_1 >= 1; y_1--) {
+        rating_content += ` <i class="fas fa-star" style="color: #ffca65"></i> `
+    }
+    if (y_1 != 0) {
+        rating_content += `<i class="fas fa-star-half-alt" style="color: #ffca65"></i> `
+    }
+
+    for (var y = 5 - rating; y >= 1; y--) {
+        rating_content += `<i class="fas fa-star"></i> `
+    }
+    return rating_content
+}
+
 function displayCourses(courses) {
     var courseListElement = document.getElementById('courses_list')
-    // console.table(courses)
+
     for (var x = 0; x < courses.length; x++) {
-
-        // rating = courses[x].course_rating
-        function get_stars(rating) {
-            rating_content = ''
-            if (rating === undefined || rating === null || rating > 5)
-                return rating_content
-            var y_1 = rating
-            for (; y_1 >= 1; y_1--) {
-                rating_content += `<i class="fas fa-star" style="color: #ffca65"></i>`
-            }
-            if (y_1 != 0) {
-                rating_content += `<i class="fas fa-star-half-alt" style="color: #ffca65"></i>`
-            }
-
-            for (var y = 5 - rating; y >= 1; y--) {
-                rating_content += `<i class="fas fa-star"></i>`
-            }
-            return rating_content
-        }
 
         courseListElement.innerHTML = courseListElement.innerHTML +
             `<li class="list-group-item">
@@ -124,6 +123,12 @@ function getCourseDetails() {
     var id = currentUrlString.split('=')[1]
     $.get(baseUrl + '/courses/details/' + id, course => {
         console.log(course)
+
+        var courseRating = document.getElementById('course_rating')
+        var forumRating = document.getElementById('forum_rating')
+        courseRating.innerHTML = get_stars(course.course_rating)
+        forumRating.innerHTML = get_stars(course.forum_activity_rating)
+
 
         var titleElement = document.getElementById('course_title')
         titleElement.innerText = course.title
