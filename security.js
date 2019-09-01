@@ -9,7 +9,11 @@ function checkLogin() {
             authorization: 'Bearer ' + localStorage.getItem('token')
         },
         success: data => {
-            console.log('SUCCESS PATH')
+            var firstName = localStorage.getItem('firstName')
+            var lastName = localStorage.getItem('lastName')
+
+            var name = document.getElementById('end_user_name')
+            name.textContent = firstName + ' ' + lastName
         },
         error: error => {
             console.log('ERROR PATH')
@@ -28,6 +32,8 @@ function login() {
         contentType: "application/json; charset=utf-8",
         success: data => {
             localStorage.setItem('token', data.token)
+            localStorage.setItem('firstName', data.firstName)
+            localStorage.setItem('lastName', data.lastName)
             window.location.href = 'index.html'
         },
         error: error => {
@@ -40,6 +46,8 @@ function login() {
 
 function logout() {
     localStorage.removeItem('token')
+    localStorage.removeItem('firstName')
+    localStorage.removeItem('lastName')
     window.location.href = "login.html"
 }
 
