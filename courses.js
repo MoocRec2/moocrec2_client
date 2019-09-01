@@ -142,6 +142,7 @@ function getCourseDetails() {
             imagesElem.innerHTML = imagesElem.innerHTML +
                 `<img src="${course.logo_image_urls[x]}">`
         }
+        imagesElem.innerHTML += `<img src="${course.image_url}">`
 
         var durationElem = document.getElementById('duration')
         durationElem.innerText = course.weeks_to_complete + ' Weeks'
