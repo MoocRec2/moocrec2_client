@@ -22,9 +22,10 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+
 </head>
 
-<body id="page-top" onload="getCourses()">
+<body id="page-top" onload="onLoadFunc()">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -150,7 +151,7 @@
                   Activity Log
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal" onclick="logout()">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -192,126 +193,7 @@
           <!-- Content Row -->
 
           <div class="row col-sm-12">
-            <ul class="list-group col-sm-12">
-              <li class="list-group-item">
-                <a class="card flex-row flex-wrap" href="mooc-details.html">
-                  <div class="card-header border-0">
-                    <img width="180" height="150"
-                      src="https://blog.internshala.com/wp-content/uploads/2018/02/Python-programming-Gamers-and-coders-of-the-world-unite-1024x490.jpg"
-                      alt="">
-                  </div>
-                  <div class="card-block px-2">
-                    <h4 class="card-title">Python Data Structures</h4>
-                    <p class="card-text">Gain new insights into your data . Learn to apply data science
-                      methods and techniques, and acquire analysis skills.</p>
-                    <i class="fas fa-star" style="color: #ffca65"></i>
-                    <i class="fas fa-star" style="color: #ffca65"></i>
-                    <i class="fas fa-star" style="color: #ffca65"></i>
-                    <i class="fas fa-star" style="color: #ffca65"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="w-100"></div>
-                  <!-- <div class="card-footer w-100 text-muted">
-                          Footer stating cats are CUTE little animals
-                      </div> -->
-                </a>
-              </li>
-              </li>
-              <li class="list-group-item">
-                <a class="card flex-row flex-wrap" href="mooc-details.html">
-                  <div class="card-header border-0">
-                    <img width="180" height="150"
-                      src="https://prod-discovery.edx-cdn.org/media/course/image/8566d539-69cb-43a5-94c2-000502df1a92-2b44e695bf30.small.png"
-                      alt="">
-                  </div>
-                  <div class="card-block px-2">
-                    <h4 class="card-title">Introduction to Kubernetes</h4>
-                    <p class="card-text">Want to learn Kubernetes? Get an in-depth primer on this
-                      powerful
-                      system for managing containerized applications.</p>
-                    <i class="fas fa-star" style="color: #ffca65"></i>
-                    <i class="fas fa-star" style="color: #ffca65"></i>
-                    <i class="fas fa-star" style="color: #ffca65"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="w-100"></div>
-                  <!-- <div class="card-footer w-100 text-muted">
-                                  Footer stating cats are CUTE little animals
-                              </div> -->
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a class="card flex-row flex-wrap" href="mooc-details.html">
-                  <div class="card-header border-0">
-                    <img width="180" height="150"
-                      src="https://prod-discovery.edx-cdn.org/media/course/image/073d6494-9e83-4ffd-8f36-6e1d95ac4366-4be9baffe5a6.small.jpg"
-                      alt="">
-                  </div>
-                  <div class="card-block px-2">
-                    <h4 class="card-title">Statistical Thinking for Data Science and Analytics</h4>
-                    <p class="card-text">Learn how statistics plays a central role in the data science
-                      approach.</p>
-                    <i class="fas fa-star" style="color: #ffca65"></i>
-                    <i class="fas fa-star" style="color: #ffca65"></i>
-                    <i class="fas fa-star" style="color: #ffca65"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="w-100"></div>
-                  <!-- <div class="card-footer w-100 text-muted">
-                                  Footer stating cats are CUTE little animals
-                              </div> -->
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a class="card flex-row flex-wrap" href="mooc-details.html">
-                  <div class="card-header border-0">
-                    <img width="180" height="150"
-                      src="https://prod-discovery.edx-cdn.org/media/course/image/17143f64-6bac-4817-b6e9-467ad5a9e51c-dcdbe83d1126.small.jpg"
-                      alt="">
-                  </div>
-                  <div class="card-block px-2">
-                    <h4 class="card-title">Microsoft Professional Capstone : Front End Web Development
-                    </h4>
-                    <p class="card-text">Showcase the knowledge gained in the Front End Web Developer
-                      Professional Program by creating a real-world single page application.</p>
-                    <i class="fas fa-star" style="color: #ffca65"></i>
-                    <i class="fas fa-star" style="color: #ffca65"></i>
-                    <i class="fas fa-star" style="color: #ffca65"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="w-100"></div>
-                  <!-- <div class="card-footer w-100 text-muted">
-                                  Footer stating cats are CUTE little animals
-                              </div> -->
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a class="card flex-row flex-wrap" href="mooc-details.html">
-                  <div class="card-header border-0">
-                    <img width="180" height="150"
-                      src="https://prod-discovery.edx-cdn.org/media/course/image/a58d02d2-ee6b-4903-8075-15d516b28254-a03357c436cb.small.jpg"
-                      alt="">
-                  </div>
-                  <div class="card-block px-2">
-                    <h4 class="card-title">Enabling Technologies for Data Science and Analytics: The
-                      Internet of Things</h4>
-                    <p class="card-text">Discover the relationship between Big Data and the Internet of
-                      Things (IoT).</p>
-                    <i class="fas fa-star" style="color: #ffca65"></i>
-                    <i class="fas fa-star" style="color: #ffca65"></i>
-                    <i class="fas fa-star" style="color: #ffca65"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="w-100"></div>
-                  <!-- <div class="card-footer w-100 text-muted">
-                                  Footer stating cats are CUTE little animals
-                              </div> -->
-                </a>
-              </li>
+            <ul class="list-group col-sm-12" id="courses_list">
             </ul>
           </div>
 
@@ -367,6 +249,14 @@
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="./courses.js"></script>
+  <script src="./security.js"></script>
+
+  <script>
+    function onLoadFunc() {
+      getCourses()
+      checkLogin()
+    }
+  </script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
