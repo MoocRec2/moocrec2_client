@@ -12,7 +12,7 @@
   background-size: cover;
 }
 
-#videoContainer {
+#videoContainer{
   position: fixed;
   top: 26%;
   bottom: 0;
@@ -397,3 +397,14 @@
   width: 100%;
 }
 
+#para, #para2{
+  align-content: flex-start;
+  color: #5e5a5a;
+  font-size: 10pt;
+}
+
+.carousel{
+  align-content: center;
+  max-width: 40vh;
+  max-height: 46vh;
+}

@@ -15,18 +15,23 @@ app.use('/', express.static('.'))
 
 // Server html files using root path /.
 app.get('/{page}', (req, res) => {
-    let goToPage = req.path.page
+    let goToPage = req.path.page;
+    console.log(goToPage);
     res.sendFile(path.join(__dirname + '/' + goToPage));
 })
 
 // Expose backend API using custom paths.
 app.post('/engagement/find', (req, res) => {
-    var sessionData = req.body;
+    console.log(req.body);
+    var sessionData = req.body.sessionData;
+    var username = req.body.username;
+    console.log(username, sessionData);
+
     var preferredStyle = engagement.deduceEngagement(sessionData);
 
     // Save the data.
     let users = collections.getCollection('users');
-    users.save({ _id: 'aliyanage44', style: preferredStyle }, (err, result) => {
+    users.updateOne({ username: username},{ $set:  {style: preferredStyle} }, (err, result) => {
         console.log(err ? err : result);
         console.log(preferredStyle ? preferredStyle : 'Unable to find preferredStyle');
         res.send(err ? err : preferredStyle);

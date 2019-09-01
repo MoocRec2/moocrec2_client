@@ -27,8 +27,12 @@ function getIndexOfVideo(path) {
 
 function findVidePreference() {
     var sessionData = JSON.parse(localStorage.getItem("training-session"));
-
-    axios.post('http://' + host + ':' + port +'/engagement/find', sessionData)
+    var payload = {
+        username: localStorage.getItem('username'),
+        sessionData: sessionData
+    };
+    console.log(payload);
+    axios.post('http://' + host + ':' + port +'/engagement/find', payload)
         .then(function (response) {
             console.log(response);
 
@@ -112,6 +116,7 @@ $(document).ready(function () {
             interval,
             completeDuration;
 
+        // Play-Pause btn on click event.
         $(playPauseBtn).on("click", function () {
             completeDuration = video.duration;
             endDuration = calcDuration(completeDuration);
@@ -212,6 +217,20 @@ $(document).ready(function () {
         // View transcript.
         $(transcript).on("click", function(){
             var transcriptDiv = document.getElementById("transcriptCard");
+
+            var videoSegmentPath = video.src.split('/');
+            var videoSegment = videoSegmentPath[videoSegmentPath.length - 1];
+            var position = getIndexOfVideo(videoSegment);   // starts from 0.
+
+            if(videoSegment == "testVideo1.mp4"){
+                document.getElementById("cardText").innerHTML = "Test video 1 content";
+            }
+            else if(videoSegment == "testVideo2.mp4"){
+                document.getElementById("cardText").innerHTML = "Test video 2 content";
+            }
+            else{
+                document.getElementById("cardText").innerHTML = "Test video 3 content";
+            }
             if(isTranscriptVisible){
                 // hide it.
                 transcriptDiv.style.display = "block";
@@ -226,8 +245,8 @@ $(document).ready(function () {
 
         // Go to the next video during submitFeedackButton click event.
         $("#submitFeedbackBtn").on("click", function () {
-            var videoSegment = video.src;
-            var position = getIndexOfVideo(videoSegment);   // starts from 0.
+            videoSegment = video.src;
+            position = getIndexOfVideo(videoSegment);   // starts from 0.
             var videoCount = videos.length; // starts from 1, like everything else.
 
             playPause();
@@ -393,7 +412,7 @@ $(document).ready(function () {
             $('.ques1').starrr({
                 change: function (e, value) {
                     //alert('new rating is ' + value);
-                    document.getElementById("para").innerHTML = "You rated " + value + " !";
+                    document.getElementById("para").innerHTML = " <br> <i> You rated " + value + " </i>!";
                     q1Rating = value;
                 }
             });
@@ -404,7 +423,7 @@ $(document).ready(function () {
             $('.ques2').starrr({
                 change: function (e, value) {
                     //alert('new rating is ' + value);
-                    document.getElementById("para2").innerHTML = "You rated " + value + " !";
+                    document.getElementById("para2").innerHTML = "<br> <i> You rated " + value + " </i>!";
                     q2Rating = value;
                 }
             });
@@ -458,8 +477,11 @@ $(document).ready(function(){
 function analyseEngagement() {
     // retrieve activity data recorded by the session.
     var sessionData = JSON.parse(localStorage.getItem("training-session"));
-    
-    axios.post('http://' + host + ':' + port +'/engagement/find', sessionData)
+    var payload = {
+        username: localStorage.getItem('username'),
+        sessionData: sessionData
+    };
+    axios.post('http://' + host + ':' + port +'/engagement/find', payload)
     .then(response => {
         console.log(response);
         var engagementData = response.data;
