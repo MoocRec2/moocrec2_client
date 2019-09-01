@@ -12,7 +12,8 @@ var q2Rating = 0;
 var yetToInteractWithVideo = true;
 var isTranscriptVisible = false;
 var isVideoMuted = false;
-
+var host = '13.127.220.123'
+var port = '3000'
 
 function getIndexOfVideo(path) {
     for (var i = 0; i < videos.length; i++) {
@@ -27,7 +28,7 @@ function getIndexOfVideo(path) {
 function findVidePreference() {
     var sessionData = JSON.parse(localStorage.getItem("training-session"));
 
-    axios.post('http://localhost:3000/engagement/activity', sessionData)
+    axios.post('http://' + host + ':' + port +'/engagement/activity', sessionData)
         .then(function (response) {
             console.log(response);
 
@@ -458,7 +459,7 @@ function analyseEngagement() {
     // retrieve activity data recorded by the session.
     var sessionData = JSON.parse(localStorage.getItem("training-session"));
     
-    axios.post('http://localhost:3000/engagement/find', sessionData)
+    axios.post('http://' + host + ':' + port +'/engagement/find', sessionData)
     .then(response => {
         console.log(response);
         var engagementData = response.data;

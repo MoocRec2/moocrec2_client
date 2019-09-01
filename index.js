@@ -26,7 +26,9 @@ app.post('/engagement/find', (req, res) => {
     // Save the data.
     let users = collections.getCollection('users');
     users.save({ _id: 'aliyanage44', style: preferredStyle }, (err, result) => {
-        res.send(err ? err : preferredStyle);
+    	console.log(err ? err : result);
+	console.log(preferredStyle ? preferredStyle : 'Unable to find preferredStyle');
+	res.send(err ? err : preferredStyle);
     });
 });
 

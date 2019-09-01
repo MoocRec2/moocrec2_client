@@ -30,11 +30,11 @@ let identifyEngagementOfEachSegment = (engagementData => {
         var totalDuration = durations[segment];
         percentageOfSkipping[segment] = 0;
 
-        /*skippedDurations[segment].forEach(skippedAtTime => {
+        skippedDurations[segment].forEach(skippedAtTime => {
             var percentage = ((skippedAtTime) / totalDuration) / skippedCount;  // Since we add up the percentages, we need to take the average.
             percentageOfSkipping[segment] += percentage;
         });
-        */
+
     });
 
     // Take the feedback of each segment into one place.
@@ -57,14 +57,17 @@ let identifyEngagementOfEachSegment = (engagementData => {
         score += (feedbackOfSegments[segment]['QuestionOneRating'], feedbackOfSegments[segment]['QuestionTwoRating']);
 
         // Add activity score.  
-        activitiesOfSegments[segment].forEach(activity => {
+        /*activitiesOfSegments[segment].forEach(activity => {
             var activityRole = activity['ElementRole']
             score += (activityRole == 'nextSegment' || activityRole == 'seekControl') ? (point * -1) : (point * 1);
         });
+        */
 
-        // Give minus points for how much of the segment was skipped.
-        var skippedPercentageOfSegment = percentageOfSkipping[segment];
-        score += (point * -1 * skippedPercentageOfSegment);
+        // Give a point, or a percentage of point for how much the segment was watched.
+        var skippedPercentageOfSegment = 0;
+        if (Object.keys(percentageOfSkipping).includes(segment)) skippedPercentageOfSegment = percentageOfSkipping[segment];
+        var watchedPercentageOfSegment = 1 - skippedPercentageOfSegment;
+        score += (point * watchedPercentageOfSegment);
 
         segmentScores.push({ VideoSegment: segment, Score: score });
     }); 
