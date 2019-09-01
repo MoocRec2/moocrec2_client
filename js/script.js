@@ -5,7 +5,7 @@ console.log("Activity recording started");
 var ACTIVITY = [];
 var FEEDBACK = [];
 var video;
-var videos = ["testVideo1.mp4", "testVideo2.mp4", "testVideo3.mp4"];
+var videos = ["testVideo1.mp4", "testVideo2.mp4", "testVideo3.mp4", "testVideo4.mp4", "testVideo5.mp4"];
 var sessionEnded = false;
 var q1Rating = 0;
 var q2Rating = 0;
@@ -241,8 +241,14 @@ $(document).ready(function () {
             else if(videoSegment == "testVideo2.mp4"){
                 document.getElementById("cardText").innerHTML = "Test video 2 content";
             }
-            else{
+            else if(videoSegment == "testVideo3.mp4"){
                 document.getElementById("cardText").innerHTML = "Test video 3 content";
+            }
+            else if(videoSegment == "testVideo4.mp4"){
+                document.getElementById("cardText").innerHTML = "Test video 4 content";
+            }
+            else{
+                document.getElementById("cardText").innerHTML = "Test video 5 content";
             }
             if(isTranscriptVisible){
                 // hide it.

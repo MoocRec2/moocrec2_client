@@ -1,8 +1,8 @@
 _ = require('lodash');
 
 let identifyEngagementOfEachSegment = (engagementData => {
-    var durations = { "testVideo1.mp4": 118, "testVideo2.mp4": 119, "testVideo3.mp4": 122 };
-    var videoNameToVideoStyleMapping = { "testVideo1.mp4": "Talking Head", "testVideo2.mp4": "Animation", "testVideo3.mp4": "Slides" };
+    var durations = { "testVideo1.mp4": 118, "testVideo2.mp4": 119, "testVideo3.mp4": 122, "testVideo4.mp4":120, "testVideo5.mp4":120 };
+    var videoNameToVideoStyleMapping = { "testVideo1.mp4": "Talking Head", "testVideo2.mp4": "Animation", "testVideo3.mp4": "Slides", "testVideo4.mp4": "Khan Academy Writing", "testVideo5.mp4": "Code/ Tutorial" };
 
     // format video segment name.
     // http://localhost:3000/testVideo1.mp4 ---> testVideo1.mp4
