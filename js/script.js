@@ -15,6 +15,19 @@ var isVideoMuted = false;
 var host = 'localhost'
 var port = '3000'
 
+
+function handleWizard(cardNumber) {
+    if (cardNumber == 1) {
+        $('#card1').css({'display': 'none'});
+        $('#card2').css({'display': 'block'});
+        $('#card3').css({'display': 'none'});
+    } else if (cardNumber == 2) {
+        $('#card1').css({'display': 'none'});
+        $('#card2').css({'display': 'none'});
+        $('#card3').css({'display': 'block'});
+    }
+}
+
 function getIndexOfVideo(path) {
     for (var i = 0; i < videos.length; i++) {
         if (path.includes(videos[i])) {
