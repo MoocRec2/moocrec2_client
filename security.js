@@ -35,6 +35,7 @@ function login() {
             localStorage.setItem('username', data.username)
             localStorage.setItem('firstName', data.firstName)
             localStorage.setItem('lastName', data.lastName)
+            localStorage.setItem('all', data)
             window.location.href = 'index.html'
         },
         error: error => {
@@ -67,6 +68,7 @@ function logout() {
     localStorage.removeItem('firstName')
     localStorage.removeItem('lastName')
     localStorage.removeItem('username')
+    localStorage.removeItem('all')
     window.location.href = "login.html"
 }
 
