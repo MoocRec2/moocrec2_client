@@ -1,4 +1,5 @@
-var baseUrl = 'http://ec2-18-221-22-226.us-east-2.compute.amazonaws.com:3000'
+// var baseUrl = 'http://ec2-18-221-22-226.us-east-2.compute.amazonaws.com:3000'
+var baseUrl = 'http://localhost:3000'
 
 function checkLogin() {
     $.ajax({
