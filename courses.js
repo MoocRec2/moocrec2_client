@@ -4,7 +4,7 @@ var baseUrl = 'http://ec2-18-221-22-226.us-east-2.compute.amazonaws.com:3000'
 
 function getCourses() {
     $.get(baseUrl + '/courses/top-rated', courses => {
-        console.log(courses.length)
+        displayCourses(courses)
     })
 }
 
@@ -68,52 +68,54 @@ function searchCourses() {
         dataType: "json",
         type: "POST",
         success: courses => {
-
-            var courseListElement = document.getElementById('courses_list')
-            // console.table(courses)
-            for (var x = 0; x < courses.length; x++) {
-
-                // rating = courses[x].course_rating
-                function get_stars(rating) {
-                    rating_content = ''
-                    if (rating === undefined || rating === null || rating > 5)
-                        return rating_content
-                    var y_1 = rating
-                    for (; y_1 >= 1; y_1--) {
-                        rating_content += `<i class="fas fa-star" style="color: #ffca65"></i>`
-                    }
-                    if (y_1 != 0) {
-                        rating_content += `<i class="fas fa-star-half-alt" style="color: #ffca65"></i>`
-                    }
-
-                    for (var y = 5 - rating; y >= 1; y--) {
-                        rating_content += `<i class="fas fa-star"></i>`
-                    }
-                    return rating_content
-                }
-
-                courseListElement.innerHTML = courseListElement.innerHTML +
-                    `<li class="list-group-item">
-                        <a class="row col-sm-12" href="mooc-details.html?id=${courses[x]._id}" style="text-decoration: none">
-                            <div class="card-header border-0 col-sm-2" style="padding: 0px;">
-                                <img 
-                                    src="${courses[x].image_url}"
-                                    alt="" style="width: 100%; height: 100%">
-                            </div>
-                            <div class="card-block px-2 col-sm-10">
-                                <h4 class="card-title">${courses[x].title} <span class="badge badge-secondary">${courses[x].platform ? courses[x].platform : 'Independent'}</span></h4>
-                                <p class="card-text" style="white-space: nowrap; 
-                                overflow: hidden;
-                                text-overflow: ellipsis;">${courses[x].short_description ? courses[x].short_description : courses[x].description ? courses[x].description : '<br>'}</p>
-                                Course Rating: ${get_stars(courses[x].course_rating)}<br>
-                                Forum Activity: ${get_stars(courses[x].forum_activity_rating)}
-                            </div>
-                            <div class="w-100"></div>
-                        </a>
-                    </li>`
-            }
+            displayCourses(courses)
         }
     });
+}
+
+function get_stars(rating) {
+    rating_content = ''
+    if (rating === undefined || rating === null || rating > 5)
+        return rating_content
+    var y_1 = rating
+    for (; y_1 >= 1; y_1--) {
+        rating_content += ` <i class="fas fa-star" style="color: #ffca65"></i> `
+    }
+    if (y_1 != 0) {
+        rating_content += `<i class="fas fa-star-half-alt" style="color: #ffca65"></i> `
+    }
+
+    for (var y = 5 - rating; y >= 1; y--) {
+        rating_content += `<i class="fas fa-star"></i> `
+    }
+    return rating_content
+}
+
+function displayCourses(courses) {
+    var courseListElement = document.getElementById('courses_list')
+
+    for (var x = 0; x < courses.length; x++) {
+
+        courseListElement.innerHTML = courseListElement.innerHTML +
+            `<li class="list-group-item">
+                <a class="card flex-row flex-wrap" href="mooc-details.html?id=${courses[x]._id}" style="text-decoration: none">
+                    <div class="card-header border-0 col-sm-2" style="padding: 0px;">
+                        <img 
+                            src="${courses[x].image_url}"
+                            alt="" style="width: 100%; height: 100%">
+                    </div>
+                    <div class="card-block px-2 col-sm-10">
+                        <h4 class="card-title">${courses[x].title} <span class="badge badge-secondary">${courses[x].platform ? courses[x].platform : 'Independent'}</span></h4>
+                        <p class="card-text" style="white-space: nowrap; 
+                        overflow: hidden;
+                        text-overflow: ellipsis;">${courses[x].short_description ? courses[x].short_description : courses[x].description ? courses[x].description : '<br>'}</p>
+                        Course Rating: ${get_stars(courses[x].course_rating)}<br>
+                        Forum Activity: ${get_stars(courses[x].forum_activity_rating)}
+                    </div>
+                    <div class="w-100"></div>
+                </a>
+            </li>`
+    }
 }
 
 function getCourseDetails() {
@@ -121,6 +123,12 @@ function getCourseDetails() {
     var id = currentUrlString.split('=')[1]
     $.get(baseUrl + '/courses/details/' + id, course => {
         console.log(course)
+
+        var courseRating = document.getElementById('course_rating')
+        var forumRating = document.getElementById('forum_rating')
+        courseRating.innerHTML = get_stars(course.course_rating)
+        forumRating.innerHTML = get_stars(course.forum_activity_rating)
+
 
         var titleElement = document.getElementById('course_title')
         titleElement.innerText = course.title
