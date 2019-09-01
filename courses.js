@@ -100,13 +100,27 @@ function displayCourses(courses) {
     var courseListElement = document.getElementById('courses_list')
 
     for (var x = 0; x < courses.length; x++) {
+        let image_url = ''
+        switch (courses[x].platform) {
+            case 'Edx':
+                image_url = courses[x].image_url
+                break
+            case 'Coursera':
+                image_url = 'https://1065379.v1.pressablecdn.com/wp-content/uploads/2018/08/coursera-social-logo.png'
+                break
+            case 'FutureLearn':
+                image_url = 'https://www.insidehighered.com/sites/default/server_files/media/FL.jpg'
+                break
+            default:
+                image_url = 'https://sashabarab.org/wp-content/uploads/2015/02/course-icon.pngF'
+        }
 
         courseListElement.innerHTML = courseListElement.innerHTML +
             `<li class="list-group-item">
                 <a class="card flex-row flex-wrap" href="mooc-details.html?id=${courses[x]._id}" style="text-decoration: none">
                     <div class="card-header border-0 col-sm-2" style="padding: 0px;">
                         <img 
-                            src="${courses[x].image_url}"
+                            src="${image_url}"
                             alt="" style="width: 100%; height: 100%">
                     </div>
                     <div class="card-block px-2 col-sm-10">
