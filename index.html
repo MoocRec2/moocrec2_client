@@ -9,135 +9,26 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>Mooc Rec 2</title>
 
   <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"
+    integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="onLoadFunc()">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Interface
-      </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Components</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="buttons.html">Buttons</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
-          </div>
-        </div>
-      </li>
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Utilities</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
-          </div>
-        </div>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Addons
-      </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="login.html">Login</a>
-            <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-            <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a>
-          </div>
-        </div>
-      </li>
-
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
-      </li>
-
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
-
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
-
-    </ul>
-    <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -148,36 +39,33 @@
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
+          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <div class="sidebar-brand-icon">
+              <img src="img/logo.png" height="36" />
+            </div>
+            <div class="sidebar-brand-text mx-3"></div>
+          </a>
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-
-          <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div>
-          </form>
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
             <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
               </a>
               <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                      aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
                         <i class="fas fa-search fa-sm"></i>
@@ -190,13 +78,15 @@
 
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
                 <span class="badge badge-danger badge-counter">3+</span>
               </a>
               <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
                   Alerts Center
                 </h6>
@@ -237,73 +127,18 @@
               </div>
             </li>
 
-            <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw"></i>
-                <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-                <h6 class="dropdown-header">
-                  Message Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                    <div class="small text-gray-500">Emily Fowler · 58m</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                    <div class="status-indicator"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                    <div class="small text-gray-500">Jae Chun · 1d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                    <div class="status-indicator bg-warning"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-              </div>
-            </li>
-
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="end_user_name"></span>
+                <img class="img-profile rounded-circle" src="data:image/png;base64,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">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="profile.html">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
@@ -316,7 +151,7 @@
                   Activity Log
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal" onclick="logout()">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -331,283 +166,99 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-          </div>
-
-          <!-- Content Row -->
           <div class="row">
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between pr-5 mb-4 col-md-3">
+              <h1 class="h3 mb-0 text-gray-800">Recommended Courses</h1>
             </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                        </div>
-                        <div class="col">
-                          <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
+            <div class="col-md-9">
+              <form action="search-results-page.html" method="GET" class="col-sm-12">
+                <span class="col-sm-12 row">
+                  <span class="col-sm-8">
+                    <p>
+                      <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        Show/Hide Filters
+                      </a>
+                    </p>
+                    <div class="collapse" id="collapseExample">
+                      <div class="card card-body">
+                        <span class="row col-sm-12">
+                          <span class="col-sm-6">
+                            <strong>Other Options</strong>
+                            <div class="form-group">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="forum_activity"
+                                  name="forum_activity">
+                                <label class="custom-control-label" for="forum_activity">Consider
+                                  Forum Activity
+                                </label>
+                              </div>
+                            </div>
+                          </span>
+                          <span class="col-sm-6">
+                            <strong>Platforms</strong>
+                            <div class="form-group">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="coursera_plat"
+                                  name="coursera_plat" checked>
+                                <label class="custom-control-label" for="coursera_plat">Coursera
+                                </label>
+                              </div>
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="edx_plat" name="edx_plat"
+                                  checked>
+                                <label class="custom-control-label" for="edx_plat">Edx
+                                </label>
+                              </div>
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="fl_plat" class="custom-control-input" id="fl_plat" checked>
+                                <label class="custom-control-label" for="fl_plat">FutureLearn
+                                </label>
+                              </div>
+                            </div>
+                          </span>
+                        </span>
                       </div>
                     </div>
-                    <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </span>
+                  <span class="col-sm-4" style="right: 0px; position: absolute; display: block;">
 
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                    <div class="input-group">
+                      <input type="text" class="form-control bg-light border-1 small" placeholder="Search Moocs"
+                        aria-label="Search" aria-describedby="basic-addon2" name="searchQuery" id="search_input">
+                      <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">
+                          <i class="fas fa-search fa-sm"></i>
+                        </button>
+                      </div>
                     </div>
-                    <div class="col-auto">
-                      <i class="fas fa-comments fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                  </span>
+                </span>
+              </form>
             </div>
           </div>
 
           <!-- Content Row -->
 
-          <div class="row">
-
-            <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
-                  </div>
-                  <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
           <!-- Content Row -->
-          <div class="row">
 
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
-
-              <!-- Project Card Example -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-                </div>
-                <div class="card-body">
-                  <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
-                  <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Color System -->
-              <div class="row">
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-primary text-white shadow">
-                    <div class="card-body">
-                      Primary
-                      <div class="text-white-50 small">#4e73df</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-success text-white shadow">
-                    <div class="card-body">
-                      Success
-                      <div class="text-white-50 small">#1cc88a</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-info text-white shadow">
-                    <div class="card-body">
-                      Info
-                      <div class="text-white-50 small">#36b9cc</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-warning text-white shadow">
-                    <div class="card-body">
-                      Warning
-                      <div class="text-white-50 small">#f6c23e</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-danger text-white shadow">
-                    <div class="card-body">
-                      Danger
-                      <div class="text-white-50 small">#e74a3b</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-secondary text-white shadow">
-                    <div class="card-body">
-                      Secondary
-                      <div class="text-white-50 small">#858796</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="col-lg-6 mb-4">
-
-              <!-- Illustrations -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-                </div>
-                <div class="card-body">
-                  <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="">
-                  </div>
-                  <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
-                  <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
-                </div>
-              </div>
-
-              <!-- Approach -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                </div>
-                <div class="card-body">
-                  <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
-                  <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
-                </div>
-              </div>
-
-            </div>
+          <div class="row col-sm-12">
+            <ul class="list-group col-sm-12" id="courses_list">
+            </ul>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </nav>
           </div>
+
+
 
         </div>
         <!-- /.container-fluid -->
@@ -637,7 +288,8 @@
   </a>
 
   <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -657,6 +309,15 @@
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="./courses.js"></script>
+  <script src="./security.js"></script>
+
+  <script>
+    function onLoadFunc() {
+      getCourses()
+      checkLogin()
+    }
+  </script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->

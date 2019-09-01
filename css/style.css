@@ -1,0 +1,410 @@
+@import url("https://fonts.googleapis.com/css?family=Questrial");
+.body {
+  font-family: "Questrial", sans-serif;
+  background-color: #FFFFFF;
+}
+
+.bg{
+  background-image: url("img/newbg.svg");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#videoContainer{
+  position: fixed;
+  top: 26%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+#videoPlayer {
+  max-width: 700px;
+  max-height: 700px;
+  border-radius: 4px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  background-color: #000000;
+  -webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+#videoTitle {
+  top: 0%;
+}
+
+#cntrls {
+  bottom: 0%;
+}
+
+#videoTitle{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 100;
+  top: -50%;
+  padding: 0.5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+}
+
+#video {
+  max-width: 100%;
+}
+
+#cntrls {
+  position: absolute;
+  bottom: 0;
+  left: 0%;
+  right: 0%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+}
+
+#topControls {
+  padding: 1rem;
+  position: relative;
+}
+
+#bottomControls {
+  padding: 0.5rem 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+
+#topControls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#startTime, #endTime {
+  -ms-flex-preferred-size: 10%;
+      flex-basis: 10%;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #acafb6;
+}
+
+#topControlsSeekbar {
+  height: 6px;
+  background-color: rgba(172, 175, 182, 0.6);
+  -ms-flex-preferred-size: 80%;
+      flex-basis: 80%;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#topControlsProgressbar {
+  height: 100%;
+  left: 0%;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+#topControlsProgressbar::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 4px;
+  top: 0%;
+  bottom: 0%;
+  margin: auto;
+  right: -4px;
+  border-radius: 500px;
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+}
+
+#topControlsSeekbar:hover {
+  cursor: pointer;
+}
+
+#topControlsSeekbar:hover #topControlsProgressbar::after {
+  height: 10px;
+  width: 10px;
+  background-color: white;
+}
+
+#volumeCtrl {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-preferred-size: 15%;
+      flex-basis: 15%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#loudSpeaker-icon{
+  color: #acafb6;
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+#volumeSeekbar{
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-preferred-size: 80%;
+      flex-basis: 80%;
+}
+
+#wrapper {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#lbl, #percentage {
+  font-size: 0.8rem;
+  color: #acafb6;
+  text-transform: capitalize;
+}
+
+#seekbar {
+  margin-top: 2px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 5px;
+  border-radius: 2px;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  background-color: rgba(172, 175, 182, 0.6);
+}
+
+#progressBar {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  position: relative;
+}
+
+#progressBar::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 4px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 500px;
+}
+
+#seekbar:hover {
+  cursor: pointer;
+}
+
+#seekbar:hover #progressBar::after {
+  height: 10px;
+  width: 10px;
+  background-color: white;
+}
+
+#playbackCtrl {
+  -ms-flex-preferred-size: 70%;
+      flex-basis: 70%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+#transcriptBtn, #playpauseBtn, #forwardBtn {
+  font-size: 2rem;
+  background-color: transparent;
+  outline: 0;
+  border: none;
+  color: #acafb6;
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+}
+
+.bottomControls .playbackCtrl .btn:hover {
+  cursor: pointer;
+}
+
+.bottomControls .playbackCtrl .btn:hover .fa {
+  color: #e2e3e6;
+}
+
+.bottomControls .playbackCtrl .btn.play .fa-pause {
+  display: none;
+}
+
+.bottomControls .playbackCtrl .btn.pause .fa-play {
+  display: none;
+}
+
+.bottomControls .playbackCtrl .btn.forward, .bottomControls .playbackCtrl .btn.backward {
+  font-size: 1.5rem;
+}
+
+.bottomControls .fullscreenCtrl {
+  -ms-flex-preferred-size: 15%;
+      flex-basis: 15%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.bottomControls .fullscreenCtrl .fullscreen {
+  font-size: 1.2rem;
+  border: none;
+  background-color: transparent;
+  color: #acafb6;
+  outline: 0;
+}
+
+.bottomControls .fullscreenCtrl .fullscreen:hover {
+  cursor: pointer;
+}
+
+.bottomControls .fullscreenCtrl .fullscreen:hover .fa {
+  color: #e2e3e6;
+}
+
+.bottomControls .transcriptCtrl {
+  -ms-flex-preferred-size: 15%;
+      flex-basis: 15%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.bottomControls .transcriptCtrl .transcript {
+  font-size: 1.2rem;
+  border: none;
+  background-color: transparent;
+  color: #acafb6;
+  outline: 0;
+}
+
+.bottomControls .transcriptCtrl .transcript:hover {
+  cursor: pointer;
+}
+
+.bottomControls .transcriptCtrl .transcript:hover .fa {
+  color: #e2e3e6;
+}
+
+
+#closeFeedbackBtn {
+  display: none;
+}
+
+#transcriptCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  right: -78vh;
+  top: 5.3vh;
+  max-width: 40vh;
+  max-height: 46vh;
+}
+
+#cardText {
+  max-height: 40vh;
+  overflow-y: scroll;
+}
+
+.sticky-footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#para, #para2{
+  align-content: flex-start;
+  color: #5e5a5a;
+  font-size: 10pt;
+}
+
+.carousel{
+  align-content: center;
+  max-width: 40vh;
+  max-height: 46vh;
+}
