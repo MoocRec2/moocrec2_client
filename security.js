@@ -35,7 +35,7 @@ function login() {
             localStorage.setItem('username', data.username)
             localStorage.setItem('firstName', data.firstName)
             localStorage.setItem('lastName', data.lastName)
-            localStorage.setItem('all', data)
+            localStorage.setItem('all', JSON.stringify(data))
             window.location.href = 'index.html'
         },
         error: error => {
