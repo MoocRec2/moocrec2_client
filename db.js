@@ -1,5 +1,13 @@
 const mongo = require('mongodb').MongoClient;
-const connectionUrl = 'mongodb://localhost:27017';
+const mongoConfig = {
+    host: '52.66.18.67',
+    authDb: 'moocrec-v2',
+    user: 'user',
+    password: 'password',
+    port: '27017'
+}
+
+const connectionUrl = `mongodb://${mongoConfig.user}:${mongoConfig.password}@${mongoConfig.host}:${mongoConfig.port}/?authSource=${mongoConfig.authDb}`;
 const databaseName = 'moocrec-v2';
 
 // Establish a singleton MongoDB connection.

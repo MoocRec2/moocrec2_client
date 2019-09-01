@@ -1,4 +1,3 @@
-
 // var baseUrl = 'http://localhost:3000'
 var baseUrl = 'http://ec2-18-221-22-226.us-east-2.compute.amazonaws.com:3000'
 
@@ -48,16 +47,22 @@ function searchCourses() {
         flCheckBox.checked = false
     }
 
-    let requestBody = { query: searchQuery }
+    let requestBody = {
+        query: searchQuery
+    }
 
     if (platforms.length !== 3 && platforms.length !== 0) {
-        Object.assign(requestBody, { platforms: platforms })
+        Object.assign(requestBody, {
+            platforms: platforms
+        })
     }
 
     var faCheckBox = document.getElementById('forum_activity')
     if (forum_activity) {
         faCheckBox.checked = true
-        Object.assign(requestBody, { consider_forum_activity: true })
+        Object.assign(requestBody, {
+            consider_forum_activity: true
+        })
     }
 
 
@@ -123,6 +128,42 @@ function getCourseDetails() {
     var id = currentUrlString.split('=')[1]
     $.get(baseUrl + '/courses/details/' + id, course => {
         console.log(course)
+
+        var videoDetails = course.video_styles;
+
+        console.log(videoDetails);
+
+        var ctx2 = document.getElementById("moocPieChart");
+
+        var moocPieChart = new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ["Animation", "Code", "Talking Head", "Slide", "Writing"],
+                datasets: [{
+                    data: [videoDetails.animation, videoDetails.code, videoDetails.head, videoDetails.slide, videoDetails.writing],
+                    backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#82d973', '#d49c6e'],
+                    hoverBackgroundColor: ['#2e59d9', '#17a673', '#215d66', '#5c9153', '#b57745'],
+                    hoverBorderColor: "rgba(234, 236, 244, 1,56,48)",
+                }],
+            },
+            options: {
+                maintainAspectRatio: false,
+                tooltips: {
+                    backgroundColor: "rgb(255,255,255)",
+                    bodyFontColor: "#858796",
+                    borderColor: '#dddfeb',
+                    borderWidth: 1,
+                    xPadding: 15,
+                    yPadding: 15,
+                    displayColors: false,
+                    caretPadding: 10,
+                },
+                legend: {
+                    display: false
+                },
+                cutoutPercentage: 80,
+            },
+        });
 
         var courseRating = document.getElementById('course_rating')
         var forumRating = document.getElementById('forum_rating')
