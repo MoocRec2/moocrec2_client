@@ -10,6 +10,8 @@ function checkLogin() {
 
 function login() {
     localStorage.setItem(login_flag_name, true)
+    // TODO: Set profile pic url
+    // TODO: Set name
 }
 
 function logout() {
