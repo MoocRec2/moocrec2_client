@@ -32,6 +32,7 @@ function login() {
         contentType: "application/json; charset=utf-8",
         success: data => {
             localStorage.setItem('token', data.token)
+            localStorage.setItem('username', data.username)
             localStorage.setItem('firstName', data.firstName)
             localStorage.setItem('lastName', data.lastName)
             window.location.href = 'index.html'
@@ -40,14 +41,32 @@ function login() {
             alert('ERROR')
         }
     })
-    // TODO: Set profile pic url
-    // TODO: Set name
+}
+
+function getUserDetails() {
+    $.ajax({
+        type: "GET",
+        url: baseUrl + '/users/user-details/' + localStorage.getItem('username'),
+        contentType: "application/json; charset=utf-8",
+        success: data => {
+            var username = document.getElementById('username')
+            var firstName = document.getElementById('firstName')
+            var lastName = document.getElementById('lastName')
+            username.textContent = localStorage.getItem('username')
+            firstName.textContent = localStorage.getItem('firstName')
+            lastName.textContent = localStorage.getItem('lastName')
+        },
+        error: error => {
+            alert('ERROR')
+        }
+    })
 }
 
 function logout() {
     localStorage.removeItem('token')
     localStorage.removeItem('firstName')
     localStorage.removeItem('lastName')
+    localStorage.removeItem('username')
     window.location.href = "login.html"
 }
 

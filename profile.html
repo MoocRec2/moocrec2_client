@@ -226,10 +226,10 @@
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <p>Username: <strong>valerie135</strong></p>
-                                    <p>First Name: <strong>Valerie</strong></p>
-                                    <p>Last Name: <strong>Luna</strong></p>
-                                    <p>Email Address: <strong>valerieluna135@gmail.com</strong></p>
+                                    <p>Username: <strong id="username"></strong></p>
+                                    <p>First Name: <strong id="firstName"></strong></p>
+                                    <p>Last Name: <strong id="lastName"></strong></p>
+                                    <!-- <p>Email Address: <strong>valerieluna135@gmail.com</strong></p> -->
                                     <!-- <div class="chart-area">
                                         <canvas id="myAreaChart"></canvas>
                                     </div> -->
@@ -583,6 +583,7 @@
     <script>
         function onLoadFunc() {
             checkLogin()
+            getUserDetails()
         }
     </script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
