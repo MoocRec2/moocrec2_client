@@ -80,7 +80,7 @@ function getUserDetails() {
                     userDiv.appendChild(yourSpan);
                 });
             } else {
-                userDiv.innerHTML = '<a class="btn btn-primary" href="session-intro.html">Find Style</a>'
+                userDiv.innerHTML = '<a class="btn btn-primary" href="tips.html">Find Style</a>'
             }
 
         },
